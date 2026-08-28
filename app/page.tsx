@@ -1,4 +1,4 @@
-import AccessGate from './components/AccessGate/AccessGate';
+import AccessGate from '../components/AccessGate/AccessGate';
 
 export default function Home() {
   return (
