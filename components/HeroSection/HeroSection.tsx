@@ -5,12 +5,16 @@ export default function HeroSection() {
   return (
     <section className="relative w-full min-h-[500px] md:h-[520px] flex items-center bg-black overflow-hidden">
 
-      {/* Background image */}
-      <img
-        src="/EarthBgImage.png"
-        alt="Earth from Space"
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
         className="absolute inset-0 w-full h-full object-cover object-center z-0"
-      />
+      >
+        <source src="/bg-video.mp4" type="video/mp4" />
+      </video>
 
       {/* Overlays — lighter than before so the earth glow stays visible */}
       <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-black/30 z-0"></div>
@@ -47,27 +51,27 @@ export default function HeroSection() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
-            <button className="w-full sm:w-auto px-7 py-3.5 bg-[#B98135] hover:bg-[#9E6F2C] text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] flex items-center justify-center gap-2 transition-all duration-300">
-              SHOP NOW <ArrowUpRight size={15} strokeWidth={2.5} />
-            </button>
+             <button className="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:from-[#B77D33] hover:to-[#94590D] text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer">
+  SHOP NOW <ArrowUpRight size={15} strokeWidth={2.5} />
+</button>
 
-            <button className="w-full sm:w-auto px-7 py-3.5 border border-white/80 hover:bg-white/10 text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] transition-all duration-300">
+            <button className="w-full sm:w-auto px-7 py-3.5 border border-white/80 hover:bg-white/10 text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] transition-all duration-300 cursor-pointer">
               VIEW LAB RESULTS
             </button>
           </div>
         </div>
 
         {/* Right Column: Logo built to match the mark exactly */}
-       <div className="hidden md:block relative w-[280px] h-[420px] lg:w-[250px] lg:h-[250px] self-start mt-8 lg:mt-2 mr-13">
-  <Image
-    src="/HeroLogo.png"
-    alt="Alpha Peptide Logo"
-    fill
-    priority
-    sizes="(max-width: 1024px) 280px, 380px"
-    className="object-contain object-top"
-  />
-</div>
+        <div className="hidden md:block relative w-[280px] h-[420px] lg:w-[250px] lg:h-[250px] self-start mt-8 lg:mt-2 mr-13">
+          <Image
+            src="/HeroLogo.png"
+            alt="Alpha Peptide Logo"
+            fill
+            priority
+            sizes="(max-width: 1024px) 280px, 380px"
+            className="object-contain object-top"
+          />
+        </div>
 
       </div>
     </section>
