@@ -29,11 +29,11 @@ export default function RootLayout({
         <CartProvider>
           <Navbar />
           <CartDrawer />
+          
           {children}
           
           {/* 2. Place the ToastProvider here so it renders on the client */}
           <ToastProvider />
-
         </CartProvider>
       </body>
     </html>
