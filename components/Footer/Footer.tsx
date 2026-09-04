@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { Mail, CreditCard } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -13,31 +14,34 @@ export default function Footer() {
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-8 pb-10 border-b border-white/10">
           
-          {/* Column 1: Brand (Spans 5 cols) */}
-          <div className="md:col-span-5 flex flex-col items-start pr-4">
+          {/* Column 1: Brand (Spans 3 cols) */}
+          <div className="md:col-span-3 flex flex-col items-start pr-4">
             
             {/* Logo Image */}
-            <div className="relative w-[160px] h-[130px] mb-5">
+            <div className="relative w-[140px] h-[115px] mb-5">
               <Image 
-                src="/HeaderLogo.png" /* Make sure this points to your stacked logo version */
+                src="/footerlogo.png"
                 alt="Alpha Peptide"
                 fill
                 className="object-contain object-left"
               />
             </div>
             
-            <p className="text-gray-100 text-[14px] leading-relaxed mb-6 max-w-[280px]">
+            <p className="text-gray-100 text-[14px] leading-relaxed mb-6 max-w-[260px]">
               Canada's most transparent source for premium research compounds.
             </p>
             
-            {/* Canadian Badge (No border, matching image) */}
-            <div className="flex items-center gap-2.5">
-              {/* Custom Maple Leaf SVG */}
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="#C99441" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 1.5L14 7H18L15 10L16 15L12 12.5L8 15L9 10L6 7H10L12 1.5Z" stroke="#C99441" strokeWidth="2" strokeLinejoin="round"/>
-                <path d="M12 12.5V22" stroke="#C99441" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-              <span className="text-[#C99441] text-[17px] font-medium tracking-wide">
+            {/* Canadian Badge */}
+            <div className="flex items-center gap-2">
+              <div className="relative w-[20px] h-[20px]">
+                <Image 
+                  src="/redleaf.png"
+                  alt="Canadian"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-[#C99441] text-[16px] font-medium tracking-wide">
                 CANADIAN
               </span>
             </div>
@@ -45,7 +49,7 @@ export default function Footer() {
 
           {/* Column 2: EXPLORE (Spans 2 cols) */}
           <div className="md:col-span-2 flex flex-col pt-2">
-            <h3 className="text-[#C99441] text-[16px] font-medium mb-5 tracking-wide">EXPLORE</h3>
+            <h3 className="text-[#C99441] text-[15px] font-medium mb-5 tracking-wide">EXPLORE</h3>
             <ul className="flex flex-col gap-4">
               {['Shop', 'Lab Results', 'Research', 'Wholesale'].map((item) => (
                 <li key={item}>
@@ -59,7 +63,7 @@ export default function Footer() {
 
           {/* Column 3: SUPPORT (Spans 2 cols) */}
           <div className="md:col-span-2 flex flex-col pt-2">
-            <h3 className="text-[#C99441] text-[16px] font-medium mb-5 tracking-wide">SUPPORT</h3>
+            <h3 className="text-[#C99441] text-[15px] font-medium mb-5 tracking-wide">SUPPORT</h3>
             <ul className="flex flex-col gap-4">
               {['FAQ', 'Contact Us', 'Shipping', 'Returns'].map((item) => (
                 <li key={item}>
@@ -71,14 +75,48 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: STAY INFORMED (Spans 3 cols) */}
+          {/* Column 4: FOLLOW US + SECURE PAYMENT (Spans 2 cols) */}
+          <div className="md:col-span-2 flex flex-col pt-2">
+            <h3 className="text-[#C99441] text-[15px] font-medium mb-5 tracking-wide">FOLLOW US</h3>
+            <div className="flex items-center gap-4 mb-7">
+              <Link href="#" aria-label="Email" className="text-gray-200 hover:text-white transition-colors">
+                <Mail size={20} strokeWidth={1.75} />
+              </Link>
+              <Link href="#" aria-label="X" className="text-gray-200 hover:text-white transition-colors">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </Link>
+               <Link href="#" aria-label="Instagram" className="text-gray-200 hover:text-white transition-colors">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+  </svg>
+</Link>
+            </div>
+
+            <h3 className="text-gray-400 text-[13px] font-medium mb-4 tracking-wide uppercase">Secure Payment</h3>
+            <div className="flex items-center gap-2">
+              <div className="h-9 w-9 bg-transparent border border-white/15 rounded flex items-center justify-center">
+                <CreditCard size={16} className="text-gray-300" />
+              </div>
+              <div className="h-9 w-9 bg-transparent border border-white/15 rounded-full flex items-center justify-center text-[13px] font-bold">
+                ₿
+              </div>
+              <div className="h-9 px-2.5 bg-transparent border border-white/15 rounded flex items-center justify-center text-[10px] font-medium text-gray-300 whitespace-nowrap">
+                e-Transfer
+              </div>
+            </div>
+          </div>
+
+          {/* Column 5: STAY INFORMED (Spans 3 cols) */}
           <div className="md:col-span-3 flex flex-col pt-2">
-            <h3 className="text-[#C99441] text-[16px] font-medium mb-4 tracking-wide">STAY INFORMED</h3>
+            <h3 className="text-[#C99441] text-[15px] font-medium mb-4 tracking-wide">STAY INFORMED</h3>
             <p className="text-gray-200 text-[14px] mb-5 leading-relaxed max-w-[280px]">
               Subscribe to get regular updates and new releases.
             </p>
             
-            {/* Form matching pixel-perfect gaps and borders */}
             <form className="flex items-center gap-3 w-full" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
@@ -99,7 +137,6 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="pt-8 flex flex-col gap-6">
           
-          {/* Copyright & Links Row */}
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
             <p className="text-gray-500 text-[12px]">
               © 2026 Alpha Peptide. All rights reserved.
@@ -118,7 +155,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Disclaimer Text */}
           <div className="flex items-start gap-2.5">
             <span className="text-[#C99441] text-[10px] mt-[3px]">●</span>
             <p className="text-gray-500 text-[12px] leading-relaxed max-w-[1000px]">

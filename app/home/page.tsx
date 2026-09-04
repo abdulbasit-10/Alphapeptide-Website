@@ -15,7 +15,7 @@ export default function HomePage() {
       <TrustBanner />
       <ProductGrid />
       <TrustSection />
-      <SupportBanner />
+      {/* <SupportBanner /> */}
       <HowItWorks />
       <Footer />
     </main>

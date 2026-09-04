@@ -4,41 +4,59 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCart } from '../../context/CartContext';
-import { Lock, CreditCard } from 'lucide-react';
+import { Lock, CreditCard, Truck } from 'lucide-react';
+import Footer from '../../components/Footer/Footer';
 
 export default function CheckoutPage() {
   const { cartItems, subtotal } = useCart();
   const [shippingMethod, setShippingMethod] = useState<'free' | 'flat'>('free');
+  
+  // Shipping calculations
   const shippingCost = shippingMethod === 'flat' ? 20.00 : 0.00;
   const estimatedTotal = subtotal + shippingCost;
+
+  // Free shipping progress logic
+  const freeShippingGoal = 350;
+  const progressPercent = Math.min((subtotal / freeShippingGoal) * 100, 100);
+  const amountAway = Math.max(freeShippingGoal - subtotal, 0);
 
   return (
     <div className="min-h-screen bg-[#030303] text-white flex flex-col">
       
-      {/* Hero Section with Earth Background Image */}
-      <div className="relative w-full py-24 md:py-32 px-6 md:px-12 border-b border-white/10 overflow-hidden flex flex-col justify-center">
-        {/* Earth / Globe Background Image Overlay */}
-        <div className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity">
+      {/* Hero Section with Earth Background Image (50% Height) */}
+      <div className="relative w-full py-12 md:py-16 overflow-hidden bg-black flex flex-col justify-center min-h-[175px] border-b border-white/10">
+        
+        {/* Earth Image Wrapper - Pushed to the right */}
+        <div className="absolute inset-y-0 right-0 w-full md:w-[75%] z-0 pointer-events-none">
           <Image 
-            src="/earth-bg.jpg" 
-            alt="Secure Global Network" 
+            src="/checkoutbg.png" 
+            alt="Earth Background" 
             fill 
             priority
-            className="object-cover object-center"
+            className="object-cover object-right md:object-right-top opacity-90 mix-blend-lighten" 
           />
+          {/* Gradient overlay inside the image wrapper to seamlessly blend its left edge into the pitch-black background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10"></div>
         </div>
-        {/* Dark vignette gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#030303]/80 via-[#030303]/60 to-[#030303] z-10"></div>
         
-        <div className="max-w-[1440px] mx-auto relative z-20 w-full">
-          <div className="text-xs text-gray-400 mb-2 flex items-center gap-2">
-            <Link href="/" className="hover:text-[#B98135]">Home</Link>
-            <span>/</span>
-            <span className="text-[#B98135]">Checkout</span>
+        {/* Text Content */}
+        <div className="max-w-[1440px] mx-auto relative z-20 w-full px-6 md:px-12">
+          {/* Breadcrumbs */}
+          <div className="text-[12px] font-medium mb-3 flex items-center gap-2">
+            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+            <span className="text-[#B98135]">›</span>
+            <span className="text-[#B98135]">Shopping Cart</span>
           </div>
-          <h1 className="text-3xl md:text-5xl font-semibold tracking-wide mb-3">Secure Checkout</h1>
-          <p className="text-gray-300 text-sm md:text-base max-w-xl">
-            Complete your order securely and review your details before proceeding with payment.
+          
+          {/* Main Heading */}
+          <h1 className="text-3xl md:text-4xl lg:text-[48px] font-medium tracking-wide mb-3 text-white">
+            Shopping Cart
+          </h1>
+          
+          {/* Description */}
+          <p className="text-gray-300 text-sm max-w-sm leading-relaxed">
+            Review your selected items before purchase.<br/>
+            Enjoy a seamless shopping experience.
           </p>
         </div>
       </div>
@@ -134,7 +152,36 @@ export default function CheckoutPage() {
         {/* RIGHT COLUMN: Order Summary & Shipment */}
         <div className="lg:col-span-5 space-y-6">
           <div className="bg-[#070707] border border-white/10 rounded-xl p-6 md:p-8 space-y-6">
-            <h2 className="text-lg font-medium tracking-wide border-b border-white/10 pb-4">Your Order</h2>
+            
+            {/* Heading */}
+            <h2 className="text-lg font-medium tracking-wide border-b border-white/10 pb-4 uppercase">
+              Your Order
+            </h2>
+
+            {/* Free Shipping Progress Bar */}
+            <div className="pb-2">
+              <div className="w-full h-1.5 bg-[#1a1a1a] rounded-full relative mb-4">
+                {/* Yellow filled progress */}
+                <div 
+                  className="h-full bg-[#B98135] transition-all duration-500 rounded-full"
+                  style={{ width: `${progressPercent}%` }}
+                ></div>
+                {/* Truck Icon Circle */}
+                <div 
+                  className="absolute top-1/2 -translate-y-1/2 w-6 h-6 rounded-full bg-[#070707] border border-[#B98135] flex items-center justify-center text-[#B98135]"
+                  style={{ left: `calc(${progressPercent}% - 12px)` }}
+                >
+                  <Truck size={12} />
+                </div>
+              </div>
+              <p className="text-xs text-gray-300">
+                {amountAway > 0 
+                  ? `You are $${amountAway.toFixed(2)} away from free shipping` 
+                  : '🎉 You qualify for free shipping!'}
+              </p>
+            </div>
+
+            <div className="border-t border-white/10 pt-4"></div>
 
             {/* Optional Order Note */}
             <div>
@@ -212,9 +259,17 @@ export default function CheckoutPage() {
                 <div className="h-8 px-3 bg-neutral-900 border border-white/10 rounded flex items-center justify-center">
                   <CreditCard size={18} className="text-gray-300" />
                 </div>
-                <div className="h-8 px-3 bg-neutral-900 border border-white/10 rounded flex items-center justify-center text-[10px] font-bold text-amber-500">
-                  ₿ BTC
+                
+                {/* Replaced text badge with Blogo.png image */}
+                <div className="h-8 w-10 bg-neutral-900 border border-white/10 rounded flex items-center justify-center relative overflow-hidden p-1">
+                  <Image 
+                    src="/Blogo.png" 
+                    alt="Bitcoin Logo" 
+                    fill 
+                    className="object-contain p-1"
+                  />
                 </div>
+
                 <div className="h-8 px-3 bg-neutral-900 border border-white/10 rounded flex items-center justify-center text-[10px] font-medium text-gray-300">
                   e-Transfer
                 </div>
@@ -228,9 +283,11 @@ export default function CheckoutPage() {
 
           </div>
         </div>
-
       </div>
-
+      
+      {/* Footer Component rendered at the bottom */}
+      <Footer />
+      
     </div>
   );
 }

@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation'; // <-- ADDED ROUTER
 import { useCart } from '../../context/CartContext';
 
+
 export default function CartDrawer() {
   const { isOpen, toggleCart, cartItems, updateQuantity, removeItem, subtotal, addToCart } = useCart();
   const router = useRouter(); // <-- INITIALIZED ROUTER
@@ -171,11 +172,16 @@ export default function CartDrawer() {
               <span className="text-white text-lg">${subtotal.toFixed(2)}</span>
             </div>
 
-            {/* View Cart Button */}
-            <button className="w-full py-3.5 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:from-[#B77D33] hover:to-[#94590D] text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer uppercase">
-              <ShoppingCart size={15} /> View Cart
-            </button>
-
+             {/* View Cart Button */}
+           <button 
+                  onClick={() => {
+           toggleCart();
+               router.push('/cart');
+                }}
+  className="w-full py-3.5 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:from-[#B77D33] hover:to-[#94590D] text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer uppercase"
+>
+  <ShoppingCart size={15} /> View Cart
+</button>
             {/* Checkout Securely Button */}
             <button 
               // <-- FIXED: Added routing back in so it navigates to the checkout page
@@ -208,6 +214,8 @@ export default function CartDrawer() {
 
         </div>
       </div>
+     
     </div>
+    
   );
 }
