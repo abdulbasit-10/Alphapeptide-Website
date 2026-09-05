@@ -4,51 +4,57 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Tag, ShieldCheck, Truck, Headphones } from 'lucide-react';
-import HowItWorks from '../../components/HowItWorks/HowItWorks'; // Update path if your component lives elsewhere
+import Header from '../../components/Navbar/Navbar'; // Adjust path if necessary
+import HowItWorks from '../../components/HowItWorks/HowItWorks';
 import Footer from '../../components/Footer/Footer';
 
 export default function WholesaleApplyPage() {
   return (
-    <div className="min-h-screen bg-black text-white flex flex-col">
+    <div className="min-h-screen bg-[#030303] text-white flex flex-col">
       
-      {/* Main Form & Partnership Section */}
-      <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12 py-12 md:py-16">
+      {/* Global Header */}
+      
+
+      {/* Hero Section with heroimg.png Background Image (50% Height) */}
+      <div className="relative w-full py-16 md:py-24 overflow-hidden bg-black flex flex-col justify-center border-b border-white/10">
         
-        {/* Top Header & Logo Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-12">
-          
-          {/* Left Heading & Description */}
-          <div>
-            <div className="text-[12px] font-medium mb-4 flex items-center gap-2">
-              <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-              <span className="text-[#B98135]">›</span>
-              <span className="text-[#B98135]">Wholesale Apply</span>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-wide mb-4">
-              Wholesale Apply
-            </h1>
-            
-            <p className="text-gray-400 text-sm max-w-lg leading-relaxed">
-              Join our wholesale program and unlock exclusive pricing on premium, lab-verified research compounds.
-            </p>
-          </div>
-
-          {/* Right Hero Logo (Pinned to top-right corner like Contact Page) */}
-          <div className="flex justify-center lg:justify-end items-start w-full">
-            <div className="relative w-full max-w-[320px] h-[160px] lg:h-[180px] opacity-90">
-              <Image 
-                src="/HeroLogo.png" 
-                alt="Alpha Peptide Hero Logo" 
-                fill 
-                className="object-contain object-top lg:object-right-top"
-                priority
-              />
-            </div>
-          </div>
-
+        {/* Background Image Wrapper - Pushed to the right with blend mode */}
+        <div className="absolute inset-y-0 right-0 w-full md:w-[75%] z-0 pointer-events-none">
+          <Image 
+            src="/heroimg.png" 
+            alt="Hero Background" 
+            fill 
+            priority
+            className="object-cover object-right md:object-right-top opacity-90 mix-blend-lighten" 
+          />
+          {/* Gradient overlay to smoothly blend its left edge into the pitch-black background */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent z-10"></div>
         </div>
+        
+        {/* Text Content */}
+        <div className="max-w-[1440px] mx-auto relative z-20 w-full px-6 md:px-12">
+          {/* Breadcrumbs */}
+          <div className="text-[12px] font-medium mb-3 flex items-center gap-2">
+            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+            <span className="text-[#B98135]">›</span>
+            <span className="text-[#B98135]">Wholesale Apply</span>
+          </div>
+          
+          {/* Main Heading */}
+          <h1 className="text-3xl md:text-5xl lg:text-[56px] font-medium tracking-wide mb-3 text-white">
+            Wholesale Apply
+          </h1>
+          
+          {/* Description */}
+          <p className="text-gray-300 text-xs md:text-sm max-w-xl leading-relaxed">
+            Join our wholesale program and unlock exclusive pricing on premium, lab-verified research compounds.
+          </p>
+        </div>
+      </div>
 
+      {/* Main Form & Partnership Section */}
+      <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12  ">
+        
         {/* Two-Column Form and Info Sidebar Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
