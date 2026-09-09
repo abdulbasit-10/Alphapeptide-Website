@@ -53,7 +53,7 @@ export default function WholesaleApplyPage() {
       </div>
 
       {/* Main Form & Partnership Section */}
-      <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12  ">
+      <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12 pt-12 ">
         
         {/* Two-Column Form and Info Sidebar Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">

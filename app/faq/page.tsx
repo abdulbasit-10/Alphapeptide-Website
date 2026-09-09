@@ -139,14 +139,14 @@ export default function FAQPage() {
       {/* Main FAQ Content */}
       <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12 py-12">
         
-        <div className="max-w-[1000px] mx-auto">
+        <div className="max-w-[1200px] mx-auto  pl-14">
           {/* Category Tabs */}
           <div className="flex flex-wrap items-center gap-3 mb-10">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => handleTabClick(cat)}
-                className={`px-5 py-2.5 text-[11px] font-medium tracking-widest uppercase rounded border transition-all duration-300 ${
+                className={`px-4 py-4 text-[11px] font-medium tracking-widest uppercase rounded border transition-all duration-300 ${
                   activeCategory === cat 
                     ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/5' 
                     : 'border-white/10 text-gray-400 hover:border-white/30 hover:text-white'
@@ -158,7 +158,7 @@ export default function FAQPage() {
           </div>
 
           {/* Accordion List */}
-          <div className="space-y-3 mb-16">
+          <div className="space-y-3 mb-16 px-45 pl-12">
             {faqData[activeCategory as keyof typeof faqData].map((faq, index) => {
               const isOpen = openIndex === index;
 
@@ -195,34 +195,54 @@ export default function FAQPage() {
             })}
           </div>
 
-          {/* Bottom Support Info Cards */}
-          <div className="bg-[#050505] border border-white/5 rounded-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10">
-            
-            <div className="flex items-center gap-4 pt-4 md:pt-0 first:pt-0">
-              <Truck size={32} strokeWidth={1.5} className="text-white shrink-0" />
-              <div>
-                <h4 className="text-sm font-semibold text-white mb-0.5">Same-day Shipping Mon - Fri</h4>
-                <p className="text-[11px] text-gray-500">(Before 1pm EST)</p>
-              </div>
-            </div>
+     {/* Bottom Support Info Cards */}
+<div className="relative w-full">
+  <svg
+    className="absolute inset-0 w-full h-full"
+    preserveAspectRatio="none"
+    viewBox="0 0 1000 200"
+    style={{ overflow: 'visible' }}
+  >
+    <defs>
+      <linearGradient id="cardBg" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stopColor="#151a22" />
+        <stop offset="100%" stopColor="#0a0d12" />
+      </linearGradient>
+    </defs>
+    <polygon
+      points="35,0 1000,0 965,200 0,200"
+      fill="url(#cardBg)"
+      stroke="rgba(255,255,255,0.15)"
+      strokeWidth="1.5"
+    />
+  </svg>
 
-            <div className="flex items-center gap-4 pt-6 md:pt-0 md:pl-8">
-              <Headphones size={32} strokeWidth={1.5} className="text-white shrink-0" />
-              <div>
-                <h4 className="text-sm font-semibold text-white mb-0.5">Responsive Support</h4>
-                <p className="text-[11px] text-gray-500">(Questions answered by real people)</p>
-              </div>
-            </div>
+  <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10 p-8">
+    <div className="flex items-center gap-4 pt-4 md:pt-0 first:pt-0 px-5">
+      <Truck size={32} strokeWidth={1.5} className="text-white shrink-0"/>
+      <div>
+        <h4 className="text-sm font-semibold text-white mb-0.5">Same-day Shipping Mon - Fri</h4>
+        <p className="text-[11px] text-gray-500">(Before 1pm EST)</p>
+      </div>
+    </div>
 
-            <div className="flex items-center gap-4 pt-6 md:pt-0 md:pl-8">
-              <FileText size={32} strokeWidth={1.5} className="text-white shrink-0" />
-              <div>
-                <h4 className="text-sm font-semibold text-white mb-0.5">View Lab Results</h4>
-                <p className="text-[11px] text-gray-500">(Tested. Verified. Transparent.)</p>
-              </div>
-            </div>
+    <div className="flex items-center gap-4 pt-6 md:pt-0 md:pl-8">
+      <Headphones size={32} strokeWidth={1.5} className="text-white shrink-0" />
+      <div>
+        <h4 className="text-sm font-semibold text-white mb-0.5">Responsive Support</h4>
+        <p className="text-[11px] text-gray-500">(Questions answered by real people)</p>
+      </div>
+    </div>
 
-          </div>
+    <div className="flex items-center gap-4 pt-6 md:pt-0 md:pl-8">
+      <FileText size={32} strokeWidth={1.5} className="text-white shrink-0" />
+      <div>
+        <h4 className="text-sm font-semibold text-white mb-0.5">View Lab Results</h4>
+        <p className="text-[11px] text-gray-500">(Tested. Verified. Transparent.)</p>
+      </div>
+    </div>
+  </div>
+</div>
         </div>
 
       </div>

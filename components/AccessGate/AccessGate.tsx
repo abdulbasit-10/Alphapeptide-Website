@@ -90,7 +90,7 @@ export default function AccessGate() {
           
           <div className="flex items-center gap-2">
             <Image 
-              src="/canadian.png"
+              src="/redleaf.png"
               alt="Canadian Flag"
               width={20}
               height={20}

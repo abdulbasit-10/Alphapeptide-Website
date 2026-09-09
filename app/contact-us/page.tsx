@@ -59,7 +59,7 @@ export default function ContactPage() {
       </div>
 
       {/* Main Content: Two Columns Layout matching Figma */}
-      <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12  grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div className="flex-1 max-w-[1440px] w-full mx-auto px-6 md:px-12 pt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
         {/* LEFT COLUMN: Contact Form */}
         <div className="lg:col-span-7 bg-[#070707] border border-white/10 rounded-xl p-6 md:p-8">

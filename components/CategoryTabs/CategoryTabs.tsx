@@ -1,0 +1,238 @@
+'use client';
+
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { 
+  ArrowUpRight,
+  Crosshair,
+  BarChart2,
+  RefreshCw
+} from 'lucide-react';
+
+
+const tabsData = [
+  {
+    id: 'core-metabolic',
+    label: 'Core Metabolic',
+    iconSrc: '/tabi1.png', 
+    titleWhite: 'METABOLIC. PERFORMANCE.',
+    titleGold: 'REDEFINED.',
+    description: 'Retatrutide is a multi-agonist peptide designed to regulate appetite, preserve lean mass, and maximize metabolic efficiency.',
+    buttonText: 'EXPLORE ALL CORE PRODUCTS',
+    buttonLink: '/shop/core-metabolic',
+    imageSrc: '/tab1.png', 
+    features: [
+      { icon: Crosshair, text: 'Appetite Control' },
+      { icon: BarChart2, text: 'Lean Mass Support' },
+      { icon: RefreshCw, text: 'Metabolic Efficiency' }
+    ]
+  },
+  {
+    id: 'endocrine-growth',
+    label: 'Endocrine & Growth',
+    iconSrc: '/tabi2.png', // <-- Path to your second custom icon
+    titleWhite: 'ENDOCRINE. OPTIMIZATION.',
+    titleGold: 'ELEVATED.',
+    description: 'Advanced peptides formulated to support natural growth hormone pathways, recovery, and deep sleep cycles.',
+    buttonText: 'EXPLORE ENDOCRINE PRODUCTS',
+    buttonLink: '/shop/endocrine',
+    imageSrc: '/tab2.png', 
+    features: [
+      { icon: Crosshair, text: 'Cellular Repair' },
+      { icon: BarChart2, text: 'Growth Support' },
+      { icon: RefreshCw, text: 'Recovery Speed' }
+    ]
+  },
+  {
+    id: 'metabolic-immunity',
+    label: 'Metabolic Immunity',
+    iconSrc: '/tabi3.png', // <-- Path to your third custom icon
+    titleWhite: 'CELLULAR. DEFENSE.',
+    titleGold: 'FORTIFIED.',
+    description: 'Mitochondrial targeted compounds designed to enhance cellular energy production and fortify immune response.',
+    buttonText: 'EXPLORE IMMUNITY PRODUCTS',
+    buttonLink: '/shop/immunity',
+    imageSrc: '/tab3.png',
+    features: [
+      { icon: Crosshair, text: 'Mitochondrial Health' },
+      { icon: BarChart2, text: 'Energy Output' },
+      { icon: RefreshCw, text: 'Immune Defense' }
+    ]
+  },
+  {
+    id: 'longevity',
+    label: 'Longevity & Regeneration',
+    iconSrc: '/tabi4.png', // <-- Path to your fourth custom icon
+    titleWhite: 'TISSUE. REGENERATION.',
+    titleGold: 'ACCELERATED.',
+    description: 'Systemic healing compounds that promote rapid tissue repair, joint health, and anti-aging benefits.',
+    buttonText: 'EXPLORE LONGEVITY PRODUCTS',
+    buttonLink: '/shop/longevity',
+    imageSrc: '/tab4.png',
+    features: [
+      { icon: Crosshair, text: 'Joint Healing' },
+      { icon: BarChart2, text: 'Anti-Aging' },
+      { icon: RefreshCw, text: 'Tissue Repair' }
+    ]
+  },
+  {
+    id: 'neuro-cognitive',
+    label: 'Neuro Cognitive',
+    iconSrc: '/tabi5.png', // <-- Path to your fifth custom icon
+    titleWhite: 'COGNITIVE. CLARITY.',
+    titleGold: 'ENHANCED.',
+    description: 'Nootropic peptides engineered to reduce neuro-inflammation, alleviate anxiety, and sharpen mental focus.',
+    buttonText: 'EXPLORE NEURO PRODUCTS',
+    buttonLink: '/shop/neuro',
+    imageSrc: '/tab5.png',
+    features: [
+      { icon: Crosshair, text: 'Mental Focus' },
+      { icon: BarChart2, text: 'Anxiety Relief' },
+      { icon: RefreshCw, text: 'Neuroprotection' }
+    ]
+  },
+  {
+    id: 'stacks',
+    label: 'Stacks',
+    iconSrc: '/tabi6.png', // <-- Path to your sixth custom icon
+    titleWhite: 'SYNERGISTIC. PROTOCOLS.',
+    titleGold: 'MAXIMIZED.',
+    description: 'Carefully curated peptide stacks designed to work in synergy for specific, accelerated research outcomes.',
+    buttonText: 'EXPLORE ALL STACKS',
+    buttonLink: '/shop/stacks',
+    imageSrc: '/tab6.png',
+    features: [
+      { icon: Crosshair, text: 'Synergistic Effects' },
+      { icon: BarChart2, text: 'Targeted Goals' },
+      { icon: RefreshCw, text: 'Optimized Dosing' }
+    ]
+  },
+  {
+    id: 'accessories',
+    label: 'Accessories',
+    iconSrc: '/tabi7.png', // <-- Path to your seventh custom icon
+    titleWhite: 'LABORATORY. ESSENTIALS.',
+    titleGold: 'SUPPLIED.',
+    description: 'Premium bacteriostatic water, sterile vials, and research accessories required for accurate reconstitution.',
+    buttonText: 'EXPLORE ACCESSORIES',
+    buttonLink: '/shop/accessories',
+    imageSrc: '/tab7.png',
+    features: [
+      { icon: Crosshair, text: 'Sterile Grade' },
+      { icon: BarChart2, text: 'Lab Verified' },
+      { icon: RefreshCw, text: 'Safe Reconstitution' }
+    ]
+  }
+];
+
+export default function CategoryTabs() {
+  const [activeTab, setActiveTab] = useState(tabsData[0].id);
+
+  // Find the currently active data
+  const currentData = tabsData.find(tab => tab.id === activeTab) || tabsData[0];
+
+  return (
+    <section className="w-full bg-[#030303] py-6 md:py-4 border-t border-white/5">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-4">
+        
+        {/* TOP TABS NAVIGATION */}
+        <div className="flex overflow-x-auto no-scrollbar mb-1 lg:mb-0 cursor-pointer">
+          <div className="flex w-full min-w-max justify-between sm:justify-start sm:gap-4 md:gap-8 lg:gap-12 pb-px cursor-pointer">
+            {tabsData.map((tab) => {
+              const isActive = activeTab === tab.id;
+              
+              return (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`flex flex-col items-center gap-3 pb-4 px-2 md:px-4 transition-all duration-300 border-b-2 ${
+                    isActive 
+                      ? 'border-[#B98135] text-[#B98135]' 
+                      : 'border-transparent text-gray-500 hover:text-gray-300'
+                  }`}
+                >
+                  {/* Replaced Lucide Icon with your Custom Image Icon */}
+                  <div className={`relative w-8 h-8 md:w-9 md:h-9 transition-opacity duration-300 ${isActive ? 'opacity-100' : 'opacity-40 hover:opacity-70'}`}>
+                    <Image 
+                      src={tab.iconSrc} 
+                      alt={`${tab.label} Icon`}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+
+                  <span className={`cursor-pointer text-[10px] md:text-xs font-medium tracking-wide text-center uppercase ${isActive ? 'text-[#B98135]' : ''}`}>
+                    {tab.label.split(' ').map((word, i) => (
+                      <React.Fragment key={i}>
+                        {word}<br className="hidden sm:block" />
+                      </React.Fragment>
+                    ))}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* CONTENT AREA */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center min-h-[500px]">
+          
+          {/* Left Text Column */}
+          <div className="flex flex-col justify-center animate-in fade-in slide-in-from-left-4 duration-500" key={currentData.id}>
+            
+            <h2 className="text-3xl md:text-5xl lg:text-[56px] font-medium leading-[1.1] mb-4 tracking-wide">
+              <span className="text-white block">{currentData.titleWhite}</span>
+              <span className="text-[#B98135] block">{currentData.titleGold}</span>
+            </h2>
+            
+            <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-lg mb-10">
+              {currentData.description}
+            </p>
+            
+            <a 
+              href={currentData.buttonLink}
+              className="inline-flex items-center justify-between w-full sm:w-[320px] px-6 py-4 border border-[#B98135] rounded-md text-[#B98135] text-xs font-semibold tracking-widest uppercase hover:bg-[#B98135]/10 transition-colors group mb-16"
+            >
+              {currentData.buttonText}
+              <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+            </a>
+
+            {/* Bottom Features */}
+            <div className="flex items-start gap-8 md:gap-12">
+              {currentData.features.map((feature, idx) => {
+                const FeatureIcon = feature.icon;
+                return (
+                  <div key={idx} className="flex flex-col items-center gap-3">
+                    <div className="w-10 h-10 rounded-full border border-[#B98135]/40 flex items-center justify-center">
+                      <FeatureIcon size={16} className="text-[#B98135]" />
+                    </div>
+                    <span className="text-[10px] text-gray-400 text-center tracking-wider max-w-[80px]">
+                      {feature.text}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            
+          </div>
+
+          {/* Right Image Column */}
+          <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center animate-in fade-in slide-in-from-right-4 duration-500" key={`${currentData.id}-img`}>
+            {/* Background texture/glow effect placeholder if needed */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#B98135]/5 to-transparent opacity-50 blur-3xl pointer-events-none"></div>
+            
+            <Image 
+              src={currentData.imageSrc} 
+              alt={currentData.label} 
+              fill
+              className="object-contain object-center drop-shadow-2xl z-10"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+            />
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  );
+}

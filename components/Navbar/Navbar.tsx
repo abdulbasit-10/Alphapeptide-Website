@@ -1,14 +1,13 @@
-'use client'; // <-- This must be at the very top!
+'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { 
   ChevronLeft, 
   ChevronRight, 
-  Search, 
-  User, 
+  Search,  
   ShoppingBag, 
   Sparkles, 
   Package, 
@@ -17,15 +16,11 @@ import {
 import { useCart } from '../../context/CartContext';
 
 export default function Navbar() {
-  // ✅ ALL HOOKS MUST BE INSIDE THIS FUNCTION
+  // ✅ ALL HOOKS MUST BE INSIDE THIS FUNCTION, CALLED UNCONDITIONALLY
   const pathname = usePathname();
   const { cartCount, toggleCart } = useCart();
   const [currentPromo, setCurrentPromo] = useState(0);
-
-  // If the user is on the root Access Gate page, do not render the Navbar
-  if (pathname === '/') {
-    return null; 
-  }
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   const promos = [
     {
@@ -53,8 +48,34 @@ export default function Navbar() {
     }
   ];
 
-  const handlePrev = () => setCurrentPromo((prev) => (prev === 0 ? promos.length - 1 : prev - 1));
-  const handleNext = () => setCurrentPromo((prev) => (prev === promos.length - 1 ? 0 : prev + 1));
+  const startAutoRotate = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentPromo((prev) => (prev === promos.length - 1 ? 0 : prev + 1));
+    }, 3000);
+  };
+
+  useEffect(() => {
+    startAutoRotate();
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current);
+    };
+  }, []);
+
+  // If the user is on the root Access Gate page, do not render the Navbar
+  if (pathname === '/') {
+    return null; 
+  }
+
+  const handlePrev = () => {
+    setCurrentPromo((prev) => (prev === 0 ? promos.length - 1 : prev - 1));
+    startAutoRotate();
+  };
+
+  const handleNext = () => {
+    setCurrentPromo((prev) => (prev === promos.length - 1 ? 0 : prev + 1));
+    startAutoRotate();
+  };
 
   const navLinks = ['Home', 'Shop', 'Lab Results', 'Research', 'FAQ', 'Affiliate', 'Wholesale', 'Contact Us'];
 
@@ -99,11 +120,6 @@ export default function Navbar() {
             <Search size={20} strokeWidth={1.5} />
           </button>
           
-          <button className="hover:text-[#C4A464] transition-colors cursor-pointer">
-            <User size={20} strokeWidth={1.5} />
-          </button>
-          
-          {/* CART BUTTON CONNECTED HERE */}
           {/* CART BUTTON */}
           <div className="relative z-50">
             <button 
@@ -111,7 +127,6 @@ export default function Navbar() {
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log("Cart button clicked directly!");
                 toggleCart();
               }}
               className="relative flex items-center justify-center p-2 text-white hover:text-[#C4A464] transition-colors cursor-pointer bg-transparent border-none outline-none"

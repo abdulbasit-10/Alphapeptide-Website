@@ -5,6 +5,7 @@ import TrustSection from "../../components/TrustSection/TrustSection";
 import SupportBanner from "../../components/SupportBanner/SupportBanner";
 import HowItWorks from "../../components/HowItWorks/HowItWorks";
 import Footer from "../../components/Footer/Footer";
+import CategoryTabs from "@/components/CategoryTabs/CategoryTabs";
 export default function HomePage() {
   return (
 
@@ -17,6 +18,7 @@ export default function HomePage() {
       <TrustSection />
       {/* <SupportBanner /> */}
       <HowItWorks />
+      <CategoryTabs />
       <Footer />
     </main>
   );
