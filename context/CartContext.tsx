@@ -26,7 +26,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export function CartProvider({ children }: { children: ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([
-    { id: 1, name: 'BPC-157', price: 59.99, quantity: 1, image: '/BPC-157.png' }
+    // { id: 1, name: 'BPC-157', price: 59.99, quantity: 1, image: '/BPC-157.png' }
   ]);
   const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
