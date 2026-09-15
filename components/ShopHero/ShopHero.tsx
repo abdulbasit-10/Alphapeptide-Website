@@ -1,11 +1,12 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
-// Centralized data structure for your custom 3D icons
-const categories = [
+// We add "export" here so ShopGrid can use these names for its title!
+export const categories = [
   { id: 'all', label: 'All Products', iconSrc: '/tabi6.png' },
   { id: 'core-metabolic', label: 'Core Metabolic', iconSrc: '/tabi1.png' },
   { id: 'endocrine-growth', label: 'Endocrine & Growth', iconSrc: '/tabi2.png' },
@@ -16,12 +17,25 @@ const categories = [
   { id: 'accessories', label: 'Accessories', iconSrc: '/tabi7.png' },
 ];
 
-export default function ShopHero({ onCategoryChange }: { onCategoryChange?: (id: string) => void }) {
-  const [activeCategory, setActiveCategory] = useState('all');
+// We pass initialCategory as a prop so it knows which page we are on
+export default function ShopHero({ initialCategory = 'all' }: { initialCategory?: string }) {
+  const router = useRouter();
+  const [activeCategory, setActiveCategory] = useState(initialCategory);
+
+  // This effect keeps the active tab in sync if the URL changes
+  useEffect(() => {
+    setActiveCategory(initialCategory);
+  }, [initialCategory]);
 
   const handleSelect = (id: string) => {
     setActiveCategory(id);
-    onCategoryChange?.(id);
+    
+    // This pushes the user to the correct URL when they click a tab
+    if (id === 'all') {
+      router.push('/shop');
+    } else {
+      router.push(`/shop/${id}`);
+    }
   };
 
   return (
@@ -49,10 +63,16 @@ export default function ShopHero({ onCategoryChange }: { onCategoryChange?: (id:
           <Link href="/" className="hover:text-[#B98135] transition-colors">Home</Link>
           <span className="text-gray-600">›</span>
           <Link href="/shop" className="hover:text-[#B98135] transition-colors">Shop</Link>
-          <span className="text-gray-600">›</span>
-          <span className="text-[#B98135]">
-            {categories.find(c => c.id === activeCategory)?.label || 'All Products'}
-          </span>
+          
+          {/* Dynamic Breadcrumb based on active category */}
+          {activeCategory !== 'all' && (
+            <>
+              <span className="text-gray-600">›</span>
+              <span className="text-[#B98135]">
+                {categories.find(c => c.id === activeCategory)?.label}
+              </span>
+            </>
+          )}
         </div>
 
         <div className="max-w-xl">
@@ -78,23 +98,17 @@ export default function ShopHero({ onCategoryChange }: { onCategoryChange?: (id:
                 onClick={() => handleSelect(cat.id)}
                 className="group relative h-28 md:h-36 w-30 text-left focus:outline-none transition-transform hover:-translate-y-1 duration-300"
               >
-                {/* 
-                  Outer wrapper acts as the "border". 
-                  We use clip-path to create the chamfered top-right corner from the design. 
-                */}
                 <div 
                   className={`absolute inset-0 p-[1px] transition-colors duration-300 ${
                     isActive ? 'bg-white/30' : 'bg-white/10 group-hover:bg-white/20'
                   }`}
                   style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}
                 >
-                   {/* Inner wrapper for the dark background */}
-               <div 
+                  <div 
                     className="h-full w-full flex flex-col items-center justify-center gap-3 p-2 transition-colors duration-300 bg-[#0a0e17] cursor-pointer"
                     style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}
-                 >
+                  >
                     
-                    {/* Custom 3D Icon Image */}
                     <div className={`relative w-12 h-12 md:w-14 md:h-14 transition-opacity duration-300 ${
                       isActive ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'
                     }`}>

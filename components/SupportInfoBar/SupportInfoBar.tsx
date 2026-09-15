@@ -3,7 +3,7 @@ import { Truck, Headphones, FileText } from 'lucide-react';
 
 export default function SupportInfoBar() {
   return (
-    <div className="relative w-full">
+    <div className="relative w-full ">
       <svg
         className="absolute inset-0 w-full h-full"
         preserveAspectRatio="none"
@@ -24,7 +24,7 @@ export default function SupportInfoBar() {
         />
       </svg>
 
-      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10 p-8">
+      <div className="relative grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-white/10 p-8 px-12 ">
         <div className="flex items-center gap-4 pt-4 md:pt-0 first:pt-0 px-5">
           <Truck size={32} strokeWidth={1.5} className="text-white shrink-0" />
           <div>
