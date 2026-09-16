@@ -80,10 +80,10 @@ export default function Navbar() {
   const navLinks = ['Home', 'Shop', 'Lab Results', 'Research', 'FAQ', 'Affiliate', 'Wholesale', 'Contact Us'];
 
   return (
-    <nav className="w-full bg-black text-white flex flex-col z-50 relative">
+    <nav className="w-full bg-black text-white flex flex-col z-50 relative border-b border-white/10">
       
       {/* 1. Top Promotional Bar */}
-      <div className="flex items-center justify-between px-4 py-2 border-b border-white/10 bg-black">
+      <div className="flex items-center justify-between px-4 py-2 bg-black">
         <button onClick={handlePrev} className="p-1 hover:text-[#C4A464] transition-colors">
           <ChevronLeft size={16} />
         </button>

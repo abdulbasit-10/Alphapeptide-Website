@@ -19,7 +19,7 @@ import {
 // Import your global components
 
 import Footer from '../../../../components/Footer/Footer'; 
-import TrustBanner from '../../../../components/TrustBanner/TrustBanner';
+// import TrustBanner from '../../../../components/TrustBanner/TrustBanner';
 import { useCart } from '../../../../context/CartContext';
 // Data for the top tabs (reused from ShopHero)
 const categories = [
@@ -330,7 +330,7 @@ export default function ProductDetail() {
       </main>
 
       {/* Trust Badges placed before Footer as requested */}
-      <TrustBanner />
+      {/* <TrustBanner /> */}
       
       <Footer />
     </div>
