@@ -16,7 +16,7 @@ export default function WholesaleApplyPage() {
       
 
       {/* Hero Section with heroimg.png Background Image (50% Height) */}
-      <div className="relative w-full py-16 md:py-24 overflow-hidden bg-black flex flex-col justify-center border-b border-white/10">
+      <div className="relative w-full py-16 md:py-24 overflow-hidden bg-black flex flex-col justify-center ">
         
         {/* Background Image Wrapper - Pushed to the right with blend mode */}
         <div className="absolute inset-y-0 right-0 w-full md:w-[75%] z-0 pointer-events-none">

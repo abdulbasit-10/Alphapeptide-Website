@@ -16,27 +16,10 @@ import {
   Plus as PlusIcon
 } from 'lucide-react';
 
-// Import your global components
-
 import Footer from '../../../../components/Footer/Footer'; 
-// import TrustBanner from '../../../../components/TrustBanner/TrustBanner';
 import { useCart } from '../../../../context/CartContext';
-// Data for the top tabs (reused from ShopHero)
-const categories = [
-  { id: 'all', label: 'All Products', iconSrc: '/tabi6.png' },
-  { id: 'core-metabolic', label: 'Core Metabolic', iconSrc: '/tabi1.png' },
-  { id: 'endocrine-growth', label: 'Endocrine & Growth', iconSrc: '/tabi2.png' },
-  { id: 'metabolic-immunity', label: 'Metabolic Immunity', iconSrc: '/tabi3.png' },
-  { id: 'longevity', label: 'Longevity & Regeneration', iconSrc: '/tabi4.png' },
-  { id: 'neuro-cognitive', label: 'Neuro Cognitive', iconSrc: '/tabi5.png' },
-  { id: 'stacks', label: 'Stacks', iconSrc: '/tabi6.png' },
-  { id: 'accessories', label: 'Accessories', iconSrc: '/tabi7.png' },
-];
 
 export default function ProductDetail() {
-  // Page State
-  const [activeCategory] = useState('core-metabolic');
-  const [activeCompound] = useState('retatrutide');
   const [quantity, setQuantity] = useState(1);
   const [selectedPack, setSelectedPack] = useState('1 VIAL');
   const [openAccordion, setOpenAccordion] = useState<string | null>(null);
@@ -53,7 +36,6 @@ export default function ProductDetail() {
   return (
     <div className="min-h-screen bg-[#030303] flex flex-col font-sans">
       
-
       <main className="flex-grow">
         
         {/* --- TOP SECTION & HERO BACKGROUND --- */}
@@ -76,7 +58,7 @@ export default function ProductDetail() {
           <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 md:px-12 pt-12">
             
             {/* Breadcrumbs */}
-            <div className="text-[11px] text-gray-400 flex items-center gap-2 mb-8 uppercase tracking-widest font-medium">
+            <div className="text-[11px] text-gray-400 flex items-center gap-2 mb-6 uppercase tracking-widest font-medium">
               <Link href="/" className="hover:text-[#B98135] transition-colors">Home</Link>
               <span className="text-gray-600">›</span>
               <Link href="/shop" className="hover:text-[#B98135] transition-colors">Shop</Link>
@@ -87,43 +69,25 @@ export default function ProductDetail() {
             </div>
 
             {/* Title */}
-            <div className="max-w-xl mb-12">
-              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-4">SHOP</h1>
+            <div className="max-w-xl mb-10">
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white mb-3">SHOP</h1>
               <p className="text-gray-300 text-[13px] leading-relaxed">
                 Premium research compounds. Lab verified. Batch traceable.
               </p>
             </div>
 
-            {/* Category Tabs (Matches ShopHero) */}
-            <div className="grid grid-cols-4 md:grid-cols-8 gap-2 md:gap-2 mb-16">
-              {categories.map((cat) => (
-                <Link key={cat.id} href={`/shop/${cat.id}`} className="group relative h-28 md:h-32 w-full text-left focus:outline-none transition-transform hover:-translate-y-1 duration-300">
-                  <div className={`absolute inset-0 p-[1px] transition-colors duration-300 ${activeCategory === cat.id ? 'bg-white/30' : 'bg-white/10 group-hover:bg-white/20'}`} style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}>
-                    <div className="h-full w-full flex flex-col items-center justify-center gap-3 p-2 bg-[#0a0e17]" style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}>
-                      <div className={`relative w-10 h-10 transition-opacity duration-300 ${activeCategory === cat.id ? 'opacity-100' : 'opacity-60 group-hover:opacity-100'}`}>
-                        <Image src={cat.iconSrc} alt={cat.label} fill className="object-contain" />
-                      </div>
-                      <span className={`text-[9px] text-center tracking-wide ${activeCategory === cat.id ? 'text-white font-semibold' : 'text-gray-400 group-hover:text-gray-200'}`}>
-                        {cat.label.split(' ').map((word, i) => (<React.Fragment key={i}>{word}<br /></React.Fragment>))}
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
             {/* Sub-Compounds Tabs */}
-            <div className="mb-16">
+            <div className="mb-12">
               <h3 className="text-[#B98135] text-[10px] uppercase tracking-widest font-bold mb-4">CORE METABOLIC COMPOUNDS</h3>
               <div className="flex flex-wrap items-center gap-3">
-                <button className="px-6 py-2.5 border border-[#B98135] text-[#B98135] text-[10px] font-bold tracking-widest uppercase bg-[#B98135]/10">
+                <button className="px-6 py-2.5 border border-[#B98135] text-[#B98135] text-[10px] font-bold tracking-widest uppercase bg-[#B98135]/10 rounded">
                   RETATRUTIDE
                 </button>
-                <button className="flex flex-col items-center justify-center px-6 py-1.5 border border-white/10 text-gray-400 text-[10px] font-bold tracking-widest uppercase bg-transparent hover:bg-white/5 transition-colors">
+                <button className="flex flex-col items-center justify-center px-6 py-1.5 border border-white/10 text-gray-400 text-[10px] font-bold tracking-widest uppercase bg-transparent hover:bg-white/5 transition-colors rounded">
                   <span>5-AMINO-1MQ</span>
                   <span className="text-[7px] text-gray-600">COMING SOON</span>
                 </button>
-                <button className="flex flex-col items-center justify-center px-6 py-1.5 border border-white/10 text-gray-400 text-[10px] font-bold tracking-widest uppercase bg-transparent hover:bg-white/5 transition-colors">
+                <button className="flex flex-col items-center justify-center px-6 py-1.5 border border-white/10 text-gray-400 text-[10px] font-bold tracking-widest uppercase bg-transparent hover:bg-white/5 transition-colors rounded">
                   <span>TIRZEPATIDE</span>
                   <span className="text-[7px] text-gray-600">COMING SOON</span>
                 </button>
@@ -144,7 +108,7 @@ export default function ProductDetail() {
                 </p>
 
                 {/* Features */}
-                <div className="flex items-start gap-8 md:gap-12 mb-12">
+                <div className="flex items-start gap-8 md:gap-12 mb-10">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-12 h-12 rounded-full border border-[#B98135]/40 flex items-center justify-center bg-[#B98135]/5">
                       <Crosshair size={18} className="text-[#B98135]" />
@@ -173,7 +137,7 @@ export default function ProductDetail() {
               {/* Right Image (Bottle) */}
               <div className="relative w-full h-[300px] md:h-[500px] flex items-center justify-center">
                 <Image 
-                  src="/p1.png" // Replace with your high-res bottle path
+                  src="/p1.png" 
                   alt="Retatrutide"
                   fill
                   className="object-contain drop-shadow-2xl z-10"
@@ -328,9 +292,6 @@ export default function ProductDetail() {
         </div>
 
       </main>
-
-      {/* Trust Badges placed before Footer as requested */}
-      {/* <TrustBanner /> */}
       
       <Footer />
     </div>

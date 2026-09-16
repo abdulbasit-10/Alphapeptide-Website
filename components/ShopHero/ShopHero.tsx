@@ -5,7 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-// We add "export" here so ShopGrid can use these names for its title!
 export const categories = [
   { id: 'all', label: 'All Products', iconSrc: '/tabi6.png' },
   { id: 'core-metabolic', label: 'Core Metabolic', iconSrc: '/tabi1.png' },
@@ -17,20 +16,16 @@ export const categories = [
   { id: 'accessories', label: 'Accessories', iconSrc: '/tabi7.png' },
 ];
 
-// We pass initialCategory as a prop so it knows which page we are on
 export default function ShopHero({ initialCategory = 'all' }: { initialCategory?: string }) {
   const router = useRouter();
   const [activeCategory, setActiveCategory] = useState(initialCategory);
 
-  // This effect keeps the active tab in sync if the URL changes
   useEffect(() => {
     setActiveCategory(initialCategory);
   }, [initialCategory]);
 
   const handleSelect = (id: string) => {
     setActiveCategory(id);
-    
-    // This pushes the user to the correct URL when they click a tab
     if (id === 'all') {
       router.push('/shop');
     } else {
@@ -39,32 +34,32 @@ export default function ShopHero({ initialCategory = 'all' }: { initialCategory?
   };
 
   return (
-    <div className="relative w-full h-[550px] md:h-[600px] flex flex-col justify-between overflow-hidden bg-[#030303]">
+    // We keep the container compact here
+    <div className="relative w-full pb-12 bg-[#030303]">
 
-      {/* Full-bleed Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/shophero.png"
-          alt="Research compounds"
-          fill
-          priority
-          className="object-cover object-center md:object-right"
-        />
-        {/* Left-to-right gradient for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#030303] via-[#030303]/80 to-transparent"></div>
-        {/* Bottom-to-top gradient to ground the tabs */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent opacity-90"></div>
-      </div>
+      {/* Hero Content Wrapper with fixed compact height */}
+      <div className="relative w-[400] md:w-[1200] h-[320px] md:h-[400px] flex flex-col overflow-hidden bg-[#030303]">
 
-      {/* Top Content: Breadcrumbs & Headings */}
-      <div className="relative z-10 max-w-[1440px] w-full mx-auto px-6 md:px-12 pt-12 md:pt-20">
+        {/* Full-bleed Background Image */}
+        <div className="absolute inset-0 z-0 w-full h-full">
+          <Image
+            src="/shophero.png"
+            alt="Research compounds"
+            priority
+            fill
+            className="object-contain object-right"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#030303] via-[#030303]/40 to-transparent opacity-90"></div>
+        </div>
+
+        {/* Top Content: Breadcrumbs & Headings (Tightened spacing & aligned to match layout) */}
+      <div className="relative z-10 w-full px-6 md:px-12 pt-4 md:pt-6 pb-6">
         
-        <div className="text-xs text-gray-400 flex items-center gap-2 mb-8">
+        <div className="text-xs text-gray-400 flex items-center gap-2 mb-3">
           <Link href="/" className="hover:text-[#B98135] transition-colors">Home</Link>
           <span className="text-gray-600">›</span>
           <Link href="/shop" className="hover:text-[#B98135] transition-colors">Shop</Link>
           
-          {/* Dynamic Breadcrumb based on active category */}
           {activeCategory !== 'all' && (
             <>
               <span className="text-gray-600">›</span>
@@ -76,18 +71,20 @@ export default function ShopHero({ initialCategory = 'all' }: { initialCategory?
         </div>
 
         <div className="max-w-xl">
-          <h1 className="text-4xl md:text-5xl lg:text-[56px] font-bold tracking-tight text-white mb-4">
+          <h1 className="text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight text-white mb-1">
             SHOP
           </h1>
-          <p className="text-gray-300 text-sm md:text-[15px] leading-relaxed max-w-[320px]">
+          <p className="text-gray-300 text-xs md:text-[14px] leading-relaxed max-w-[320px]">
             Premium research compounds. Lab verified.<br />
             Batch traceable.
           </p>
         </div>
       </div>
 
-      {/* Bottom Content: Interactive Category Tabs */}
-      <div className="relative z-20 max-w-[1440px] w-full mx-auto px-6 md:px-10 pb-11">
+      </div>
+
+      {/* Interactive Category Tabs: Pulled up slightly using negative margin so they float over the bottom */}
+      <div className="relative z-20 max-w-[1440px] w-full mx-auto px-6 md:px-10 -mt-2 md:-mt-28">
         <div className="grid grid-cols-4 md:grid-cols-8 gap-2 md:gap-1">
           {categories.map((cat) => {
             const isActive = activeCategory === cat.id;
@@ -96,7 +93,7 @@ export default function ShopHero({ initialCategory = 'all' }: { initialCategory?
               <button
                 key={cat.id}
                 onClick={() => handleSelect(cat.id)}
-                className="group relative h-28 md:h-36 w-30 text-left focus:outline-none transition-transform hover:-translate-y-1 duration-300"
+                className="group relative h-28 md:h-36 w-full text-left focus:outline-none transition-transform hover:-translate-y-1 duration-300"
               >
                 <div 
                   className={`absolute inset-0 p-[1px] transition-colors duration-300 ${

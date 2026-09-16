@@ -15,7 +15,7 @@ export default function ContactPage() {
       
 
       {/* Hero Section with Contact Background Image (50% Height) */}
-      <div className="relative w-full py-12 md:py-16 overflow-hidden bg-black flex flex-col justify-center min-h-[175px] border-b border-white/10">
+      <div className="relative w-full py-12 md:py-16 overflow-hidden bg-black flex flex-col justify-center min-h-[175px] ">
         
         {/* Contact Background Image Wrapper - Pushed to the right with blend mode */}
         <div className="absolute inset-y-0 right-0 w-full md:w-[75%] z-0 pointer-events-none">

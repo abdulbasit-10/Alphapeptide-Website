@@ -12,7 +12,8 @@ import {
   Clock,
   ChevronLeft,
   ChevronRight,
-  MoreHorizontal
+  MoreHorizontal,
+  ArrowUpRight
 } from 'lucide-react';
 
 import { useCart } from '../../context/CartContext'; 
@@ -126,38 +127,52 @@ export default function ShopGrid({ categorySlug = 'all' }: { categorySlug?: stri
         {filteredProducts.length === 0 ? (
            <div className="py-20 text-center text-gray-500">No products found in this category.</div>
         ) : (
-          <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" : "flex flex-col gap-4"}>
+          <div className={viewMode === 'grid' ? "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" : "flex flex-col gap-4"}>
             {sortedProducts.map((product) => (
-              <div key={product.id} className={`group relative flex bg-[#05070a] border border-white/10 rounded-xl overflow-hidden hover:border-white/25 transition-all duration-300 ${viewMode === 'grid' ? 'flex-col' : 'flex-row items-center h-48'}`}>
+              <div 
+                key={product.id} 
+                className={`group relative flex bg-[#0a0a0a] border border-white/10 rounded-lg overflow-hidden hover:border-[#B98135] transition-all duration-300 cursor-pointer ${viewMode === 'grid' ? 'flex-col items-center p-4' : 'flex-row items-center h-48 p-4'}`}
+              >
                 
                 {product.badge && (
-                  <div className="absolute top-4 left-4 z-20 px-2 py-1 border border-white/20 rounded bg-black/60 backdrop-blur-md pointer-events-none">
-                    <span className="text-[9px] text-gray-300 font-medium tracking-widest uppercase">{product.badge}</span>
+                  <div className="absolute top-4 left-4 border border-[#B98135] text-[#B98135] text-[9px] px-2 py-1 uppercase tracking-widest rounded-full font-medium z-50 pointer-events-none">
+                    {product.badge}
                   </div>
                 )}
 
-                {/* Wrapped Image and Title inside a Next.js Link pointing to the product detail page */}
-                <Link href={`/shop/${product.categoryId}/${product.slug}`} className={`relative flex items-center justify-center ${viewMode === 'grid' ? 'w-full h-[280px] p-8' : 'w-48 h-full p-4 border-r border-white/5'}`}>
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent pointer-events-none"></div>
-                  <Image src={product.image} alt={product.name} fill className="object-contain p-6 drop-shadow-2xl group-hover:scale-105 transition-transform duration-500" />
+                {/* Homepage-matched Image Area */}
+                <Link href={`/shop/${product.categoryId}/${product.slug}`} className={`relative flex items-center justify-center ${viewMode === 'grid' ? 'w-full h-[250px] mb-3' : 'w-48 h-full border-r border-white/5'}`}>
+                  <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-3xl pointer-events-none"></div>
+                  <Image 
+                    src={product.image} 
+                    alt={product.name} 
+                    fill 
+                    className="object-contain relative z-10 mix-blend-lighten" 
+                  />
                 </Link>
 
-                <div className={`flex flex-col flex-grow border-white/5 ${viewMode === 'grid' ? 'p-5 border-t' : 'p-6 h-full justify-center'}`}>
+                {/* Product Details & Action */}
+                <div className={`flex flex-col ${viewMode === 'grid' ? 'w-full items-center text-center' : 'flex-grow p-6 justify-center'}`}>
                   <Link href={`/shop/${product.categoryId}/${product.slug}`}>
-                    <h3 className="text-white font-semibold text-lg tracking-wide uppercase mb-1 hover:text-[#B98135] transition-colors">
+                    <h3 className="text-lg font-semibold text-white tracking-wide mb-1 hover:text-[#B98135] transition-colors">
                       {product.name}
                     </h3>
                   </Link>
-                  <p className="text-gray-500 text-[10px] uppercase tracking-widest font-medium mb-4">{product.subtitle}</p>
-                  <p className={`text-white text-sm font-bold tracking-wide ${viewMode === 'grid' ? 'mt-auto mb-5' : 'mb-4'}`}>{product.price}</p>
+                  
+                  <p className="text-gray-400 text-sm mb-3">
+                    {product.price}
+                  </p>
 
-                  <div className={viewMode === 'grid' ? 'w-full' : 'w-48'}>
+                  <div className={viewMode === 'grid' ? 'w-full flex justify-center' : 'w-48'}>
                     {product.status === 'available' ? (
-                      <button onClick={() => addToCart({ name: product.name, price: product.numericPrice, image: product.image })} className="w-full flex items-center justify-center gap-2 py-3 border border-white/10 rounded bg-[#030303] hover:border-[#B98135] hover:text-[#B98135] transition-colors text-gray-300 text-[11px] font-semibold tracking-widest uppercase">
-                        <ShoppingCart size={14} /> ADD TO CART
+                      <button 
+                        onClick={() => addToCart({ name: product.name, price: product.numericPrice, image: product.image })} 
+                        className="cursor-pointer py-1 px-5 flex items-center justify-center gap-2 border border-[#B77D33] group-hover:border-[#B98135] group-hover:text-[#B98135] rounded-[4px] text-sm tracking-widest transition-all duration-300 text-white"
+                      >
+                        Shop Now <ArrowUpRight size={16} strokeWidth={1.5} />
                       </button>
                     ) : (
-                      <button disabled className="w-full flex items-center justify-center gap-2 py-3 border border-white/5 rounded bg-[#030303]/50 text-gray-600 text-[11px] font-semibold tracking-widest uppercase cursor-not-allowed">
+                      <button disabled className="cursor-not-allowed py-1 px-5 flex items-center justify-center gap-2 border border-white/5 rounded-[4px] bg-[#030303]/50 text-gray-600 text-sm tracking-widest">
                         <Clock size={14} /> Coming Soon
                       </button>
                     )}

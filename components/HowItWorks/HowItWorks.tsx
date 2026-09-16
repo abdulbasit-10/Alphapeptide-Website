@@ -2,6 +2,7 @@
 
 import React from 'react';
 import { FileText, ShieldCheck, Link2, Coins } from 'lucide-react';
+import Image from 'next/image';
 
 export default function HowItWorks() {
   const steps = [
@@ -16,15 +17,31 @@ export default function HowItWorks() {
       icon: <ShieldCheck size={20} className="text-white stroke-[1.5]" />,
     },
     {
-      num: '03',
-      title: 'Share Your Link',
-      icon: <Link2 size={20} className="text-white stroke-[1.5]" />,
-    },
-    {
-      num: '04',
-      title: 'Earn Commission',
-      icon: <Coins size={20} className="text-white stroke-[1.5]" />,
-    },
+    num: '03',
+    title: 'Share Your Link',
+    icon: (
+      <Image 
+        src="/link.png" 
+        alt="Share Your Link Icon" 
+        width={18} 
+        height={18} 
+        className="object-contain" 
+      />
+    ),
+  },
+  {
+    num: '04',
+    title: 'Earn Commission',
+    icon: (
+      <Image 
+        src="/database.png" 
+        alt="Earn Commission Icon" 
+        width={18} 
+        height={18} 
+        className="object-contain" 
+      />
+    ),
+  },
   ];
 
   return (
@@ -36,7 +53,7 @@ export default function HowItWorks() {
           <h2 className="text-3xl md:text-4xl font-medium text-white tracking-wide">
             How its <span className="text-[#C58B33]">work?</span>
           </h2>
-          <p className="text-gray-400 text-xs md:text-sm max-w-lg mx-auto leading-relaxed">
+          <p className="text-white-400 text-xs md:text-sm max-w-lg mx-auto leading-relaxed">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
         </div>
@@ -58,7 +75,7 @@ export default function HowItWorks() {
                 </span>
                 
                 {/* Circle Container with Glowing Edge Nodes */}
-                <div className="relative w-16 h-16 rounded-full border border-[#C58B33] bg-black flex items-center justify-center mb-5">
+                <div className="relative w-14 h-14 rounded-full border border-[#C58B33] bg-black flex items-center justify-center mb-5">
                   
                   {/* Left Glowing Node Dot */}
                   {index > 0 && (

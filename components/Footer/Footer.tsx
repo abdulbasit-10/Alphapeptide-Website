@@ -53,7 +53,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4">
               {['Shop', 'Lab Results', 'Research', 'Wholesale'].map((item) => (
                 <li key={item}>
-                  <Link href={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-200 hover:text-white text-[14px] transition-colors">
+                  <Link href={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-200 hover:text-[#B77D33] text-[14px] transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -67,7 +67,7 @@ export default function Footer() {
             <ul className="flex flex-col gap-4">
               {['FAQ', 'Contact Us', 'Shipping', 'Returns'].map((item) => (
                 <li key={item}>
-                  <Link href={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-200 hover:text-white text-[14px] transition-colors">
+                  <Link href={`/${item.toLowerCase().replace(' ', '-')}`} className="text-gray-200 hover:text-[#B77D33] text-[14px] transition-colors">
                     {item}
                   </Link>
                 </li>
@@ -79,15 +79,15 @@ export default function Footer() {
           <div className="md:col-span-2 flex flex-col pt-2">
             <h3 className="text-[#C99441] text-[15px] font-medium mb-5 tracking-wide">FOLLOW US</h3>
             <div className="flex items-center gap-4 mb-7">
-              <Link href="#" aria-label="Email" className="text-gray-200 hover:text-white transition-colors">
+              <Link href="#" aria-label="Email" className="text-gray-200 hover:text-[#B77D33] transition-colors">
                 <Mail size={20} strokeWidth={1.75} />
               </Link>
-              <Link href="#" aria-label="X" className="text-gray-200 hover:text-white transition-colors">
+              <Link href="#" aria-label="X" className="text-gray-200 hover:text-[#B77D33] transition-colors">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                 </svg>
               </Link>
-               <Link href="#" aria-label="Instagram" className="text-gray-200 hover:text-white transition-colors">
+               <Link href="#" aria-label="Instagram" className="text-gray-200 hover:text-[#B77D33] transition-colors">
   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>

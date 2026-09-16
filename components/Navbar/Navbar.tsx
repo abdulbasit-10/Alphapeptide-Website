@@ -104,17 +104,28 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {navLinks.map((link) => (
-            <Link 
-              key={link} 
-              href={`/${link.toLowerCase().replace(' ', '-')}`} 
-              className="text-[13px] font-light leading-none text-gray-200 hover:text-[#C4A464] transition-colors"
-            >
-              {link}
-            </Link>
-          ))}
-        </div>
+          {navLinks.map((link) => {
+            // Keeps your original routing: "Home" -> "/home", "Shop" -> "/shop"
+            const href = `/${link.toLowerCase().replace(' ', '-')}`;
+            
+            // Checks if the current path is an exact match, or if it's a sub-page (like /shop/core-metabolic)
+            const isActive = pathname === href || pathname.startsWith(`${href}/`);
 
+            return (
+              <Link 
+                key={link} 
+                href={href} 
+                className={`text-[13px] leading-none transition-colors ${
+                  isActive 
+                    ? 'text-[#B77D33] font-medium' 
+                    : 'text-gray-200 font-light hover:text-[#B77D33]'
+                }`}
+              >
+                {link}
+              </Link>
+            );
+          })}
+        </div>
         <div className="flex items-center gap-5 md:gap-6">
           <button className="hover:text-[#C4A464] transition-colors cursor-pointer">
             <Search size={20} strokeWidth={1.5} />

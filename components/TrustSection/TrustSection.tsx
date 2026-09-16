@@ -100,7 +100,7 @@ export default function TrustSection() {
 
         {/* Left: Responsive Support */}
         <div className="flex items-center gap-3">
-          <Headset size={20} className="text-[#B98135]" strokeWidth={1.75} />
+          <Headset size={30} className="text-[#fff]" strokeWidth={1.75} />
           <span className="text-[#B98135] text-sm font-semibold tracking-widest uppercase">
             Responsive Support
           </span>
@@ -115,7 +115,7 @@ export default function TrustSection() {
         </div>
 
         {/* Right: CTA */}
-        <button className="px-6 py-2.5 border border-[#B98135]/60 hover:bg-[#B98135]/10 text-white text-xs font-medium tracking-[0.15em] rounded-[4px] flex items-center gap-2 transition-all duration-300 uppercase">
+        <button className="px-6 py-2.5 border border-[#B98135]/60 hover:bg-[#B98135]/10 text-white text-xs font-medium tracking-[0.15em] rounded-[4px] flex items-center gap-2 transition-all duration-300 uppercase cursor-pointer">
           View Lab Results <ArrowUpRight size={15} strokeWidth={2.5} />
         </button>
 
