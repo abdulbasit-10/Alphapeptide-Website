@@ -35,8 +35,7 @@ const products = [
   { id: 12, name: 'SELANK', slug: 'selank', categoryId: 'neuro-cognitive', subtitle: '10MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p12.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-01' },
   { id: 13, name: '5-AMINO-1MQ', slug: '5-amino-1mq', categoryId: 'core-metabolic', subtitle: '10MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p13.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-02' },
   { id: 14, name: 'TIRZEPATIDE', slug: 'tirzepatide', categoryId: 'core-metabolic', subtitle: '30MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p14.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-03' },
-  { id: 15, name: 'CJC-1295', slug: 'cjc-1295', categoryId: 'endocrine-growth', subtitle: '10MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p15.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-04' },
-  { id: 16, name: 'SEMAX', slug: 'semax', categoryId: 'neuro-cognitive', subtitle: '10MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p16.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-05' },
+{ id: 15, name: 'CJC-1295 w/DAC', slug: 'cjc-1295-w-dac', categoryId: 'endocrine-growth', subtitle: '5MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p15.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-04' },  { id: 16, name: 'SEMAX', slug: 'semax', categoryId: 'neuro-cognitive', subtitle: '10MG | 99% Purity', price: '$90.00', numericPrice: 90.00, image: '/p16.png', badge: null, status: 'coming_soon', sales: 0, dateAdded: '2024-03-05' },
 ];
 
 const sortOptions = [
