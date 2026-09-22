@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { TrendingUp, Tag, Link2, CreditCard } from 'lucide-react';
@@ -9,12 +9,39 @@ import HowItWorks from '../../components/HowItWorks/HowItWorks'; // Adjust path 
 import Footer from '../../components/Footer/Footer'; // Adjust path if necessary
 
 export default function AffiliatePage() {
+  const [status, setStatus] = useState<string>('');
+
+  const submitToGoogleSheet = async (e: React.FormEvent<HTMLFormElement>, formType: string) => {
+    e.preventDefault();
+    setStatus('Sending...');
+    
+    // Replace this with the URL you copied from Apps Script!
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz4PeVtu6LWZrc8vGUcqvYiwsuhvurOS41isXOTpWt462DKVlBiANiQQ5o0O6FNpTDuFQ/exec'; 
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    data.formType = formType; // Tells the script which tab to use
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        body: JSON.stringify(data),
+      });
+      setStatus('Success!');
+      (e.target as HTMLFormElement).reset(); // Clear the form
+      setTimeout(() => setStatus(''), 3000); // Reset button text after 3s
+    } catch (error) {
+      console.error(error);
+      setStatus('Error. Try again.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#030303] text-white flex flex-col">
       
       {/* Global Navbar */}
       
-
       {/* Hero Section with bg001.png Background Image */}
       <div className="relative w-full py-16 md:py-24 overflow-hidden bg-black flex flex-col justify-center">
         
@@ -35,7 +62,7 @@ export default function AffiliatePage() {
         <div className="max-w-[1440px] mx-auto relative z-20 w-full px-6 md:px-12">
           {/* Breadcrumbs */}
           <div className="text-[12px] font-medium mb-3 flex items-center gap-2">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+            <Link href="/" className="text-gray-300 hover:text-white transition-colors cursor-pointer">Home</Link>
             <span className="text-[#B98135]">›</span>
             <span className="text-[#B98135]">Become an Affiliate</span>
           </div>
@@ -60,66 +87,61 @@ export default function AffiliatePage() {
           
           {/* LEFT COLUMN: Affiliate Registration Form */}
           <div className="lg:col-span-7 bg-[#050505] border border-white/10 rounded-xl p-6 md:p-8">
-            <form onSubmit={(e) => e.preventDefault()} className="space-y-5">
+            <form onSubmit={(e) => submitToGoogleSheet(e, 'Affiliate')} className="space-y-5">
               
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Username*</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Username*</label>
+                <input type="text" name="username" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">First Name*</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">First Name*</label>
+                <input type="text" name="firstName" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Last Name*</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Last Name*</label>
+                <input type="text" name="lastName" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Email*</label>
-                <input type="email" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Email*</label>
+                <input type="email" name="email" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Confirm Email*</label>
-                <input type="email" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Confirm Email*</label>
+                <input type="email" name="confirmEmail" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Password*</label>
-                <input type="password" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Who referred you?</label>
+                <input type="text" name="referredBy" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Who referred you?</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Add your Social Media link</label>
+                <input type="text" name="socialLink" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Add your Social Media link</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Phone Number*</label>
+                <input type="tel" name="phone" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Phone Number*</label>
-                <input type="tel" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
-              </div>
-
-              <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Postal Code*</label>
-                <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Postal Code*</label>
+                <input type="text" name="postalCode" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
-                  <label className="block text-xs font-medium text-gray-400 mb-2">City*</label>
-                  <input type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                  <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">City*</label>
+                  <input type="text" name="city" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
                 </div>
                 <div>
-                  <label className="block text-xs font-medium text-gray-400 mb-2">Province*</label>
-                  <select className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors">
+                  <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Province*</label>
+                  <select name="province" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors cursor-pointer" required>
                     <option value="">Select Province</option>
                     <option value="ON">Ontario</option>
                     <option value="BC">British Columbia</option>
@@ -130,21 +152,20 @@ export default function AffiliatePage() {
               </div>
 
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Country*</label>
-                <input type="text" defaultValue="Canada" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Country*</label>
+                <input type="text" name="country" defaultValue="Canada" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
 
               <div className="flex items-center gap-3 pt-2">
                 <input type="checkbox" id="terms" className="accent-[#B98135] w-4 h-4 rounded cursor-pointer border-white/10 bg-black shrink-0" required />
                 <label htmlFor="terms" className="text-xs text-gray-300 cursor-pointer">
-                  Accept our <Link href="/terms" className="text-[#B98135] hover:underline">Terms & Conditions</Link>
+                  Accept our <Link href="/terms" className="text-[#B98135] hover:underline cursor-pointer">Terms & Conditions</Link>
                 </label>
               </div>
 
-              <button type="submit" className="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:opacity-90 text-white text-xs font-semibold tracking-wider rounded-lg transition-opacity cursor-pointer">
-                Register
+              <button disabled={status === 'Sending...'} type="submit" className="w-full sm:w-auto px-10 py-3.5 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:opacity-90 text-white text-xs font-semibold tracking-wider rounded-lg transition-opacity cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+                {status || 'Register'}
               </button>
-
             </form>
           </div>
 

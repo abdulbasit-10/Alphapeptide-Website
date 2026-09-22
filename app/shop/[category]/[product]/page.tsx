@@ -103,7 +103,7 @@ const productsData: Record<string, any> = {
     categoryLabel: 'ENDOCRINE & GROWTH RESEARCH',
     categorySlug: 'endocrine-growth',
     description: 'Tesamorelin is a GHRH analog that stimulates the body\'s natural release of growth hormone to support visceral fat reduction, lean body composition, metabolic health, and overall vitality.',
-    image: '/p2.png',
+    image: '/12121212.png',
     strength: '10MG',
     purity: '10MG | 99% Purity',
     packSizes: [
@@ -124,7 +124,7 @@ const productsData: Record<string, any> = {
     categoryLabel: 'ENDOCRINE & GROWTH RESEARCH',
     categorySlug: 'endocrine-growth',
     description: 'CJC-1295 with DAC is a long-acting growth hormone releasing hormone (GHRH)-analog designed to stimulate the body\'s natural release of growth hormone, supporting lean body composition, recovery, and overall vitality.',
-    image: '/p15.png',
+    image: '/12321233.png',
     strength: '5MG',
     purity: '5MG | 99% Purity',
     packSizes: [
@@ -137,6 +137,290 @@ const productsData: Record<string, any> = {
     related: [
       { name: 'TESAMORELIN', slug: 'tesamorelin', categorySlug: 'endocrine-growth', subtitle: '10MG | 99% Purity', image: '/p2.png' },
       { name: '5-AMINO-1MQ', slug: '5-amino-1mq', categorySlug: 'core-metabolic', subtitle: '10MG | 99% Purity', image: '/p13.png' }
+    ]
+  },
+  'ss-31': {
+    name: 'SS-31',
+    tagline: 'MITOCHONDRIAL PEPTIDE',
+    categoryLabel: 'METABOLIC IMMUNITY RESEARCH',
+    categorySlug: 'metabolic-immunity',
+    description: 'SS-31 is a novel mitochondrial-targeted research compound studied for its potential to support mitochondrial function, reduce oxidative stress, and optimize metabolic and immune health.',
+    image: '/33428534.png', // Replace with your SS-31 bottle image
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$85.00', numericPrice: 85.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$240.00', numericPrice: 240.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$375.00', numericPrice: 375.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$700.00', numericPrice: 700.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'MOTS-c', slug: 'mots-c', categorySlug: 'metabolic-immunity', subtitle: '10MG | 99% Purity', image: '/p9.png' },
+      { name: 'RETATRUTIDE', slug: 'retatrutide', categorySlug: 'core-metabolic', subtitle: '20MG | 99% Purity', image: '/detailed1.png' }
+    ]
+  },
+  'mots-c': {
+    name: 'MOTS-c',
+    tagline: 'MITOCHONDRIAL-DERIVED PEPTIDE',
+    categoryLabel: 'METABOLIC IMMUNITY RESEARCH',
+    categorySlug: 'metabolic-immunity',
+    description: 'MOTS-c is a mitochondrial-derived peptide studied for its potential to support metabolic homeostasis, insulin sensitivity, energy balance, and cellular stress resistance.',
+    image: '/p9.png', 
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$90.00', numericPrice: 90.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$255.00', numericPrice: 255.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$400.00', numericPrice: 400.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$750.00', numericPrice: 750.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'SS-31', slug: 'ss-31', categorySlug: 'metabolic-immunity', subtitle: '10MG | 99% Purity', image: '/p3.png' },
+      { name: 'TESAMORELIN', slug: 'tesamorelin', categorySlug: 'endocrine-growth', subtitle: '10MG | 99% Purity', image: '/p2.png' }
+    ]
+  },
+  'bpc-157': {
+    name: 'BPC-157',
+    tagline: 'BODY PROTECTIVE COMPOUND',
+    categoryLabel: 'LONGEVITY & REGENERATION',
+    categorySlug: 'longevity-regeneration',
+    description: 'BPC-157 is a pentadecapeptide studied for its potential to support tissue repair, gut health, inflammation reduction, and overall cellular recovery.',
+    image: '/bpc157.png', // Replace with your BPC-157 bottle image
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$90.00', numericPrice: 90.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$255.00', numericPrice: 255.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$400.00', numericPrice: 400.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$750.00', numericPrice: 750.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'TB-500', slug: 'tb-500', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p7.png' },
+      { name: 'GHK-Cu', slug: 'ghk-cu', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p6.png' }
+    ]
+  },
+  'tb-500': {
+    name: 'TB-500',
+    tagline: 'TISSUE REPAIR PEPTIDE',
+    categoryLabel: 'LONGEVITY & REGENERATION',
+    categorySlug: 'longevity-regeneration',
+    description: 'TB-500 is a synthetic fraction of Thymosin Beta-4, researched for its role in cellular migration, tissue repair, and down-regulation of inflammatory markers.',
+    image: '/tb500.png',
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$90.00', numericPrice: 90.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$255.00', numericPrice: 255.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$400.00', numericPrice: 400.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$750.00', numericPrice: 750.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'BPC-157', slug: 'bpc-157', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p11.png' },
+      { name: 'GHK-Cu', slug: 'ghk-cu', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p6.png' }
+    ]
+  },
+  'ghk-cu': {
+    name: 'GHK-Cu',
+    tagline: 'COPPER PEPTIDE',
+    categoryLabel: 'LONGEVITY & REGENERATION',
+    categorySlug: 'longevity-regeneration',
+    description: 'GHK-Cu is a naturally occurring copper complex studied for its potential in tissue remodeling, antioxidant activation, and stimulation of collagen synthesis.',
+    image: '/ghkcu.png', 
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$90.00', numericPrice: 90.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$255.00', numericPrice: 255.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$400.00', numericPrice: 400.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$750.00', numericPrice: 750.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'BPC-157', slug: 'bpc-157', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p11.png' },
+      { name: 'TB-500', slug: 'tb-500', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p7.png' }
+    ]
+  },
+  'semax': {
+    name: 'SEMAX',
+    tagline: 'NEUROPEPTIDE',
+    categoryLabel: 'NEURO COGNITIVE RESEARCH',
+    categorySlug: 'neuro-cognitive',
+    description: 'Semax is a synthetic peptide originally developed for its potential to support cognitive function, focus, and neuroprotection.',
+    image: '/semax.png',
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+      { label: '3 PACK', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+      { label: '5 PACK', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+      { label: '10 PACK', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+    ],
+    isComingSoon: true,
+    related: [
+      { name: 'SELANK', slug: 'selank', categorySlug: 'neuro-cognitive', subtitle: '10MG | 99% Purity', image: '/p12.png' },
+      { name: 'GHK-Cu', slug: 'ghk-cu', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p6.png' }
+    ]
+  },
+  'selank': {
+    name: 'SELANK',
+    tagline: 'NEUROPEPTIDE',
+    categoryLabel: 'NEURO COGNITIVE RESEARCH',
+    categorySlug: 'neuro-cognitive',
+    description: 'Selank is a synthetic regulatory peptide studied for its potential anxiolytic properties, supporting emotional balance, and cognitive function.',
+    image: '/selank.png', // Replace with your SELANK bottle image
+    strength: '10MG',
+    purity: '10MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+      { label: '3 PACK', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+      { label: '5 PACK', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+      { label: '10 PACK', subtitle: 'COMING SOON', price: '$0.00', numericPrice: 0.00 },
+    ],
+    isComingSoon: true,
+    related: [
+      { name: 'SEMAX', slug: 'semax', categorySlug: 'neuro-cognitive', subtitle: '10MG | 99% Purity', image: '/p16.png' },
+      { name: 'BPC-157', slug: 'bpc-157', categorySlug: 'longevity-regeneration', subtitle: '10MG | 99% Purity', image: '/p11.png' }
+    ]
+  },
+  'glow': {
+    name: 'GLOW',
+    tagline: 'AESTHETIC PEPTIDE BLEND',
+    categoryLabel: 'STACK RESEARCH',
+    categorySlug: 'stacks',
+    description: 'GLOW is a synergistic peptide stack designed for aesthetic research, formulated to support cellular regeneration and overall vitality.',
+    image: '/glow.png', 
+    strength: '70MG',
+    purity: '70MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$90.00', numericPrice: 90.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$255.00', numericPrice: 255.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$400.00', numericPrice: 400.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$750.00', numericPrice: 750.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'KLOW', slug: 'klow', categorySlug: 'stacks', subtitle: '80MG | 99% Purity', image: '/p8.png' },
+      { name: 'WOLVERINE', slug: 'wolverine', categorySlug: 'stacks', subtitle: '20MG | 99% Purity', image: '/p5.png' }
+    ]
+  },
+  'klow': {
+    name: 'KLOW',
+    tagline: 'METABOLIC SYNERGY BLEND',
+    categoryLabel: 'STACK RESEARCH',
+    categorySlug: 'stacks',
+    description: 'KLOW is an advanced peptide stack researched for its potential to support metabolic efficiency, energy balance, and lean mass optimization.',
+    image: '/klow.png', 
+    strength: '80MG',
+    purity: '80MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$90.00', numericPrice: 90.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$255.00', numericPrice: 255.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$400.00', numericPrice: 400.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$750.00', numericPrice: 750.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'GLOW', slug: 'glow', categorySlug: 'stacks', subtitle: '70MG | 99% Purity', image: '/p10.png' },
+      { name: 'WOLVERINE', slug: 'wolverine', categorySlug: 'stacks', subtitle: '20MG | 99% Purity', image: '/p5.png' }
+    ]
+  },
+  'wolverine': {
+    name: 'WOLVERINE',
+    tagline: 'RECOVERY & REPAIR BLEND',
+    categoryLabel: 'STACK RESEARCH',
+    categorySlug: 'stacks',
+    description: 'WOLVERINE is a potent stack combining tissue-repairing compounds to comprehensively support cellular recovery, inflammation reduction, and healing.',
+    image: '/2341233fe.png', 
+    strength: '20MG',
+    purity: '20MG | 99% Purity',
+    packSizes: [
+      { label: '1 VIAL', price: '$110.00', numericPrice: 110.00 },
+      { label: '3 PACK', subtitle: 'Per Vial', price: '$315.00', numericPrice: 315.00 },
+      { label: '5 PACK', subtitle: 'Per Vial', price: '$500.00', numericPrice: 500.00 },
+      { label: '10 PACK', subtitle: 'Per Vial', price: '$950.00', numericPrice: 950.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'GLOW', slug: 'glow', categorySlug: 'stacks', subtitle: '70MG | 99% Purity', image: '/p10.png' },
+      { name: 'KLOW', slug: 'klow', categorySlug: 'stacks', subtitle: '80MG | 99% Purity', image: '/p8.png' }
+    ]
+  },
+  'bac-water': {
+    name: 'BACTERIOSTATIC WATER',
+    tagline: 'RECONSTITUTION SOLUTION',
+    categoryLabel: 'ACCESSORIES',
+    categorySlug: 'accessories',
+    description: 'Bacteriostatic water for injection containing 0.9% benzyl alcohol added as a bacteriostatic preservative.',
+    image: '/water-base.png', 
+    strength: '30ML',
+    purity: 'RESEARCH USE ONLY',
+    packSizes: [
+      { label: '1 VIAL', price: '$15.00', numericPrice: 15.00 },
+      { label: '3 PACK', price: '$40.00', numericPrice: 40.00 },
+      { label: '5 PACK', price: '$65.00', numericPrice: 65.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'SYRINGES', slug: 'syringes', categorySlug: 'accessories', subtitle: '100 PACK', image: '/syringes.png' },
+      { name: 'PREP PADS', slug: 'prep-pads', categorySlug: 'accessories', subtitle: '100 PACK', image: '/prep-pads.png' }
+    ]
+  },
+  'syringes': {
+    name: 'SYRINGES',
+    tagline: 'MEASUREMENT & ADMINISTRATION',
+    categoryLabel: 'ACCESSORIES',
+    categorySlug: 'accessories',
+    description: 'High-quality, sterile syringes for precise measurement and administration of research compounds.',
+    image: '/injection.jpeg', 
+    strength: '1ML',
+    purity: 'STERILE',
+    packSizes: [
+      { label: '100 PACK', price: '$15.00', numericPrice: 15.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'BACTERIOSTATIC WATER', slug: 'bac-water', categorySlug: 'accessories', subtitle: '30ML', image: '/p4.png' },
+      { name: 'PREP PADS', slug: 'prep-pads', categorySlug: 'accessories', subtitle: '100 PACK', image: '/prep-pads.png' }
+    ]
+  },
+  'prep-pads': {
+    name: 'PREP PADS',
+    tagline: 'STERILE ALCOHOL PADS',
+    categoryLabel: 'ACCESSORIES',
+    categorySlug: 'accessories',
+    description: 'Individually wrapped, sterile alcohol prep pads for surface and vial sterilization.',
+    image: '/sachet.jpeg', 
+    strength: '70%',
+    purity: 'ISOPROPYL ALCOHOL',
+    packSizes: [
+      { label: '100 PACK', price: '$5.00', numericPrice: 5.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'SYRINGES', slug: 'syringes', categorySlug: 'accessories', subtitle: '100 PACK', image: '/syringes.png' },
+      { name: 'VIAL CAPS', slug: 'vial-caps', categorySlug: 'accessories', subtitle: 'VARIOUS COLORS', image: '/vial-caps.png' }
+    ]
+  },
+  'vial-caps': {
+    name: 'VIAL CAPS',
+    tagline: 'PROTECTIVE CLOSURES',
+    categoryLabel: 'ACCESSORIES',
+    categorySlug: 'accessories',
+    description: 'Protective snap-off caps for research vials, available in multiple colors for easy categorization.',
+    image: '/redwhite .jpeg', 
+    strength: '20MM',
+    purity: 'ALUMINUM/PLASTIC',
+    packSizes: [
+      { label: '10 PACK', price: '$2.00', numericPrice: 2.00 },
+    ],
+    isComingSoon: false,
+    related: [
+      { name: 'BACTERIOSTATIC WATER', slug: 'bac-water', categorySlug: 'accessories', subtitle: '30ML', image: '/p4.png' },
+      { name: 'PREP PADS', slug: 'prep-pads', categorySlug: 'accessories', subtitle: '100 PACK', image: '/prep-pads.png' }
     ]
   }
 };
@@ -173,13 +457,22 @@ export default function ProductDetail() {
         <div className="relative w-full pb-20">
           <div className="absolute inset-0 z-0 h-full">
             <Image
-  // If the category is endocrine-growth, use the new background. Otherwise, keep the DNA background.
-               src={product.categorySlug === 'endocrine-growth' ? '/endocronicbg.png' : '/shopdetailed.jpeg'}
+              // Dynamic background logic for all three categories   
+              src={
+                product.categorySlug === 'metabolic-immunity' ? '/bgimage2221212.png' :
+                product.categorySlug === 'longevity-regeneration' ? '/123237432434.png' :
+                product.categorySlug === 'endocrine-growth' ? '/endocronicbg.png' :
+                product.categorySlug === 'neuro-cognitive' ? '/24352342352.png' : 
+                product.categorySlug === 'stacks' ? '/12343323213.png' :
+                product.categorySlug === 'accessories' ? '/123423423423.png' :
+                
+                '/shopdetailed.jpeg' // Default Core Metabolic background
+              }
               alt="Category Background"
               fill
               priority
               className="object-cover object-center opacity-85"
-              />
+            />
             
           </div>
 
@@ -206,20 +499,100 @@ export default function ProductDetail() {
 
             {/* Sub-Compounds Tabs */}
             <div className="mb-12">
-              <h3 className="text-[#B98135] text-[10px] uppercase tracking-widest font-bold mb-3">CORE METABOLIC COMPOUNDS</h3>
-              <div className="flex flex-wrap items-center gap-3">
-                <Link href="/shop/core-metabolic/retatrutide" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'retatrutide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
-                  RETATRUTIDE
-                </Link>
-                <Link href="/shop/core-metabolic/5-amino-1mq" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === '5-amino-1mq' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
-                  <span>5-AMINO-1MQ</span>
-                  <span className="text-[7px] text-gray-500">COMING SOON</span>
-                </Link>
-                <Link href="/shop/core-metabolic/tirzepatide" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tirzepatide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
-                  <span>TIRZEPATIDE</span>
-                  <span className="text-[7px] text-gray-500">COMING SOON</span>
-                </Link>
-              </div>
+              <h3 className="text-[#B98135] text-[10px] uppercase tracking-widest font-bold mb-3">
+                {product.categorySlug === 'core-metabolic' ? 'CORE METABOLIC COMPOUNDS' : 
+                 product.categorySlug === 'endocrine-growth' ? 'ENDOCRINE & GROWTH COMPOUNDS' : 
+                 product.categorySlug === 'metabolic-immunity' ? 'METABOLIC IMMUNITY COMPOUNDS' :
+                 product.categorySlug === 'longevity-regeneration' ? 'LONGEVITY & REGENERATION COMPOUNDS' :
+                 product.categorySlug === 'neuro-cognitive' ? 'NEURO COGNITIVE COMPOUNDS' :
+                 product.categorySlug === 'stacks' ? 'STACK RESEARCH COMPOUNDS' :
+                 'ACCESSORIES'}
+              </h3>
+              
+              {product.categorySlug === 'core-metabolic' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/core-metabolic/retatrutide" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'retatrutide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    RETATRUTIDE
+                  </Link>
+                  <Link href="/shop/core-metabolic/5-amino-1mq" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === '5-amino-1mq' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    <span>5-AMINO-1MQ</span>
+                    <span className="text-[7px] text-gray-500">COMING SOON</span>
+                  </Link>
+                  <Link href="/shop/core-metabolic/tirzepatide" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tirzepatide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    <span>TIRZEPATIDE</span>
+                    <span className="text-[7px] text-gray-500">COMING SOON</span>
+                  </Link>
+                </div>
+              ) : product.categorySlug === 'endocrine-growth' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/endocrine-growth/cjc-1295-w-dac" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'cjc-1295-w-dac' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    <span>CJC-1295 w/DAC</span>
+                    <span className="text-[7px] text-gray-500">COMING SOON</span>
+                  </Link>
+                  <Link href="/shop/endocrine-growth/tesamorelin" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tesamorelin' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    TESAMORELIN
+                  </Link>
+                </div>
+              ) : product.categorySlug === 'metabolic-immunity' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/metabolic-immunity/ss-31" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'ss-31' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    SS-31
+                  </Link>
+                  <Link href="/shop/metabolic-immunity/mots-c" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'mots-c' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    MOTS-c
+                  </Link>
+                </div>
+              ) : product.categorySlug === 'longevity-regeneration' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/longevity-regeneration/bpc-157" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'bpc-157' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    BPC-157
+                  </Link>
+                  <Link href="/shop/longevity-regeneration/tb-500" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tb-500' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    TB-500
+                  </Link>
+                  <Link href="/shop/longevity-regeneration/ghk-cu" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'ghk-cu' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    GHK-Cu
+                  </Link>
+                </div>
+              ) : product.categorySlug === 'neuro-cognitive' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/neuro-cognitive/semax" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'semax' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    <span>SEMAX</span>
+                    <span className="text-[7px] text-gray-500">COMING SOON</span>
+                  </Link>
+                  <Link href="/shop/neuro-cognitive/selank" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'selank' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    <span>SELANK</span>
+                    <span className="text-[7px] text-gray-500">COMING SOON</span>
+                  </Link>
+                </div>
+              ) : product.categorySlug === 'stacks' ? (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/stacks/glow" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'glow' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    GLOW
+                  </Link>
+                  <Link href="/shop/stacks/klow" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'klow' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    KLOW
+                  </Link>
+                  <Link href="/shop/stacks/wolverine" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'wolverine' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    WOLVERINE
+                  </Link>
+                </div>
+              ) : (
+                <div className="flex flex-wrap items-center gap-3">
+                  <Link href="/shop/accessories/bac-water" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'bac-water' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    BACTERIOSTATIC WATER
+                  </Link>
+                  <Link href="/shop/accessories/syringes" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'syringes' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    SYRINGES
+                  </Link>
+                  <Link href="/shop/accessories/prep-pads" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'prep-pads' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    PREP PADS
+                  </Link>
+                  <Link href="/shop/accessories/vial-caps" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'vial-caps' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                    VIAL CAPS
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* Product Hero Info & Image */}

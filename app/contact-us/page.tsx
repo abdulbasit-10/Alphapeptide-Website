@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { MessageSquare } from 'lucide-react';
@@ -8,14 +8,41 @@ import Header from '../../components/Navbar/Navbar'; // Update path if necessary
 import Footer from '../../components/Footer/Footer'; // Update path if necessary
 
 export default function ContactPage() {
+  const [status, setStatus] = useState<string>('');
+
+  const submitToGoogleSheet = async (e: React.FormEvent<HTMLFormElement>, formType: string) => {
+    e.preventDefault();
+    setStatus('Sending...');
+    
+    // Replace this with the URL you copied from Apps Script!
+    const WEBHOOK_URL = 'https://script.google.com/macros/s/AKfycbz4PeVtu6LWZrc8vGUcqvYiwsuhvurOS41isXOTpWt462DKVlBiANiQQ5o0O6FNpTDuFQ/exec'; 
+
+    const formData = new FormData(e.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+    data.formType = formType; // Tells the script which tab to use
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' }, 
+        body: JSON.stringify(data),
+      });
+      setStatus('Success!');
+      (e.target as HTMLFormElement).reset(); // Clear the form
+      setTimeout(() => setStatus(''), 3000); // Reset button text after 3s
+    } catch (error) {
+      console.error(error);
+      setStatus('Error. Try again.');
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#030303] text-white flex flex-col">
       
       {/* Global Header */}
       
-
       {/* Hero Section with Contact Background Image (50% Height) */}
-      <div className="relative w-full py-12 md:py-16 overflow-hidden bg-black flex flex-col justify-center min-h-[175px] ">
+      <div className="relative w-full py-12 md:py-16 overflow-hidden bg-black flex flex-col justify-center min-h-[175px]">
         
         {/* Contact Background Image Wrapper - Pushed to the right with blend mode */}
         <div className="absolute inset-y-0 right-0 w-full md:w-[75%] z-0 pointer-events-none">
@@ -34,7 +61,7 @@ export default function ContactPage() {
         <div className="max-w-[1440px] mx-auto relative z-20 w-full px-6 md:px-12">
           {/* Breadcrumbs */}
           <div className="text-[12px] font-medium mb-3 flex items-center gap-2">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+            <Link href="/" className="text-gray-300 hover:text-white transition-colors cursor-pointer">Home</Link>
             <span className="text-[#B98135]">›</span>
             <span className="text-[#B98135]">Contact Us</span>
           </div>
@@ -51,7 +78,7 @@ export default function ContactPage() {
 
           <p className="text-sm">
             <span className="text-[#B98135] font-medium">Email: </span>
-            <a href="mailto:info@alphapeptide.ca" className="text-white hover:text-[#B98135] transition-colors">
+            <a href="mailto:info@alphapeptide.ca" className="text-white hover:text-[#B98135] transition-colors cursor-pointer">
               info@alphapeptide.ca
             </a>
           </p>
@@ -63,54 +90,33 @@ export default function ContactPage() {
         
         {/* LEFT COLUMN: Contact Form */}
         <div className="lg:col-span-7 bg-[#070707] border border-white/10 rounded-xl p-6 md:p-8">
-          <form onSubmit={(e) => e.preventDefault()} className="space-y-6">
+          <form onSubmit={(e) => submitToGoogleSheet(e, 'Contact')} className="space-y-6">
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Name<span className="text-[#B98135]">*</span></label>
-                <input 
-                  type="text" 
-                  className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" 
-                  required 
-                />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Name<span className="text-[#B98135]">*</span></label>
+                <input name="name" type="text" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
               <div>
-                <label className="block text-xs font-medium text-gray-400 mb-2">Email<span className="text-[#B98135]">*</span></label>
-                <input 
-                  type="email" 
-                  className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" 
-                  required 
-                />
+                <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Email<span className="text-[#B98135]">*</span></label>
+                <input name="email" type="email" className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors" required />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-gray-400 mb-2">Message<span className="text-[#B98135]">*</span></label>
-              <textarea 
-                rows={6} 
-                placeholder="Enter please your message." 
-                className="w-full bg-black border border-white/10 rounded-lg p-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors resize-none" 
-                required
-              ></textarea>
+              <label className="block text-xs font-medium text-gray-400 mb-2 cursor-pointer">Message<span className="text-[#B98135]">*</span></label>
+              <textarea name="message" rows={6} placeholder="Enter please your message." className="w-full bg-black border border-white/10 rounded-lg p-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors resize-none" required></textarea>
             </div>
 
             <div className="flex items-center gap-3">
-              <input 
-                type="checkbox" 
-                id="privacy" 
-                className="accent-[#B98135] w-4 h-4 rounded cursor-pointer border-white/10 bg-black shrink-0" 
-                required 
-              />
+              <input type="checkbox" id="privacy" className="accent-[#B98135] w-4 h-4 rounded cursor-pointer border-white/10 bg-black shrink-0" required />
               <label htmlFor="privacy" className="text-xs text-gray-300 cursor-pointer">
-                I agree to the <Link href="/privacy" className="text-[#B98135] hover:underline">Privacy Policy</Link> of the website.
+                I agree to the <Link href="/privacy" className="text-[#B98135] hover:underline cursor-pointer">Privacy Policy</Link> of the website.
               </label>
             </div>
 
-            <button 
-              type="submit" 
-              className="px-8 py-3 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:opacity-90 text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-opacity cursor-pointer"
-            >
-              Send
+            <button disabled={status === 'Sending...'} type="submit" className="w-full sm:w-auto px-8 py-3 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:opacity-90 text-white text-xs font-semibold uppercase tracking-wider rounded-lg transition-opacity cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">
+              {status || 'Send'}
             </button>
           </form>
         </div>
@@ -133,7 +139,7 @@ export default function ContactPage() {
             </div>
 
             {/* QR Code Image from Public Folder */}
-            <div className="relative w-25 h-25  rounded-lg p-2 shrink-0 border border-white/10 flex items-center justify-center">
+            <div className="relative w-24 h-24 rounded-lg p-2 shrink-0 border border-white/10 flex items-center justify-center bg-black">
               <Image 
                 src="/contactqr.png" 
                 alt="WhatsApp QR Code" 
