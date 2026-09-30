@@ -18,7 +18,7 @@ export const articleData: Record<string, any> = {
     subtitle: 'THYMOSIN BETA 4',
     leftTags: ['TISSUE REPAIR', 'MUSCULAR RECOVERY', 'ENHANCED MOBILITY'],
     bgImage: '/2343443333.png', 
-    rightHexImage: '/hexes/tb-500-hexes.png', // The single composite image containing all 3 hexes (194x610)
+    rightHexImage: '/image 203.png', // The single composite image containing all 3 hexes (194x610)
     rightHexText: [
       { 
         title: 'MUSCLE REPAIR', 
@@ -44,11 +44,20 @@ export const articleData: Record<string, any> = {
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'COPPER TRIPEPTIDE-1',
     leftTags: ['SKIN REJUVENATION', 'TISSUE REPAIR', 'CELLULAR HEALTH', 'ANTI-INFLAMMATORY'],
-    bgImage: '/articles/ghk-cu-bg.jpg', 
-    rightHexes: [
-      { title: 'SKIN REJUVENATION', desc: 'May support collagen, elastin and healthier skin appearance.', icon: '/hex-skin.png' },
-      { title: 'TISSUE REPAIR', desc: 'Supports cellular repair and wound healing processes.', icon: '/hex-repair.png' },
-      { title: 'ANTI-INFLAMMATORY', desc: 'May help modulate inflammation and support overall tissue health.', icon: '/hex-cells.png' }
+    bgImage: '/2434weurhwer.png', 
+    rightHexText: [
+      { 
+        title: 'SKIN REJUVENATION', 
+        desc: 'May support collagen, elastin and healthier skin appearance.' 
+      },
+      { 
+        title: 'TISSUE REPAIR', 
+        desc: 'Supports cellular repair and wound healing processes.' 
+      },
+      { 
+        title: 'ANTI-INFLAMMATORY', 
+        desc: 'May help modulate inflammation and support overall tissue health.' 
+      }
     ],
     footerTitle: 'GHK-Cu: A Comprehensive Review of its Biological Activities, Therapeutic Potential and Safety',
     footerDesc: 'An easy-to-understand overview of GHK-Cu, including what it is, how it works, and current research findings.',
@@ -56,16 +65,25 @@ export const articleData: Record<string, any> = {
     year: '2018',
   },
 
-  '5-amino-1mq': {
+ '5-amino-1mq': {
     title: '5-AMINO-1MQ',
     badge: 'RESEARCH OVERVIEW',
     subtitle: '5-AMINO-1-METHYLQUINOLINIUM',
     leftTags: ['NEUROPROTECTION', 'MITOCHONDRIAL SUPPORT', 'COGNITIVE FUNCTION', 'CELLULAR ENERGY'],
-    bgImage: '/articles/5-amino-bg.jpg', 
-    rightHexes: [
-      { title: 'NAD+ BIOSYNTHESIS', desc: 'May enhance intracellular NAD+ levels.', icon: '/hex-nad.png' },
-      { title: 'MITOCHONDRIAL HEALTH', desc: 'Supports mitochondrial function and biogenesis.', icon: '/hex-mito.png' },
-      { title: 'METABOLIC FUNCTION', desc: 'May support metabolic efficiency and cellular energy.', icon: '/hex-energy.png' }
+    bgImage: '/KLOW Background.png', 
+    rightHexText: [
+      { 
+        title: 'SKIN REJUVENATION', 
+        desc: 'May support collagen, elastin and healthier skin appearance.' 
+      },
+      { 
+        title: 'TISSUE REPAIR', 
+        desc: 'Supports cellular repair and wound healing processes.' 
+      },
+      { 
+        title: 'ANTI-INFLAMMATORY', 
+        desc: 'May help modulate inflammation and support overall tissue health.' 
+      }
     ],
     footerTitle: '5-Amino-1MQ: Emerging Research on a Mitochondrial Target for Cognitive Health and Neuroprotection',
     footerDesc: 'An easy-to-understand overview of 5-Amino-1MQ, including what it is, how it may support brain health and cellular energy, and important safety considerations.',
@@ -78,11 +96,24 @@ export const articleData: Record<string, any> = {
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'TRIPLE AGONIST (GLP-1 / GIP / GLUCAGON)',
     leftTags: ['WEIGHT MANAGEMENT', 'METABOLIC HEALTH', 'CARDIOVASCULAR SUPPORT', 'IMPROVED BODY COMPOSITION'],
-    bgImage: '/articles/retatrutide-bg.jpg', 
-    rightHexes: [
-      { title: 'APPETITE REGULATION', desc: 'May help reduce hunger and support healthy eating behaviors.', icon: '/hex-brain.png' },
-      { title: 'METABOLIC HEALTH', desc: 'May help improve insulin sensitivity and metabolic function.', icon: '/hex-cells.png' },
-      { title: 'LEAN MASS PRESERVATION', desc: 'May help support lean muscle during weight loss.', icon: '/hex-muscle.png' }
+    bgImage: '/image 205.png', 
+    rightHexText: [
+      { 
+        title: 'APPETITE REGULATION', 
+        desc: 'May help reduce hunger and support healthy eating behaviours.' 
+      },
+      { 
+        title: 'METABOLIC HEALTH', 
+        desc: 'May help improve insulin sensitivity and metabolic function.' 
+      },
+      { 
+        title: 'CARDIOVASCULAR SUPPORT', 
+        desc: 'May support cardiometabolic health.' 
+      },
+      { 
+        title: 'LEAN MASS PRESERVATION', 
+        desc: 'May help support lean muscle during weight loss.' 
+      }
     ],
     footerTitle: 'Retatrutide: A Triple-Hormone Agonist for Obesity and Metabolic Disease — What the Research Shows',
     footerDesc: 'An easy-to-understand overview of retatrutide, including what it is, how it works as a triple agonist, current research findings, and important safety considerations.',
@@ -95,11 +126,24 @@ export const articleData: Record<string, any> = {
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'DUAL AGONIST (GLP-1 / GIP)',
     leftTags: ['APPETITE REGULATION', 'METABOLIC HEALTH', 'WEIGHT MANAGEMENT', 'IMPROVED BODY COMPOSITION'],
-    bgImage: '/articles/tirzepatide-bg.jpg', 
-    rightHexes: [
-      { title: 'APPETITE REGULATION', desc: 'May help reduce hunger and support healthy eating behaviors.', icon: '/hex-brain.png' },
-      { title: 'METABOLIC HEALTH', desc: 'May help improve insulin sensitivity and metabolic function.', icon: '/hex-cells.png' },
-      { title: 'WEIGHT MANAGEMENT', desc: 'May support clinically significant weight loss.', icon: '/hex-body.png' }
+    bgImage: '/image 207.png', 
+    rightHexText: [
+      { 
+        title: 'APPETITE REGULATION', 
+        desc: 'May help reduce hunger and support healthy eating behaviours.' 
+      },
+      { 
+        title: 'METABOLIC HEALTH', 
+        desc: 'May help improve insulin sensitivity and metabolic function.' 
+      },
+      { 
+        title: 'WEIGHT MANAGEMENT', 
+        desc: 'May support clinically significant weight loss.' 
+      },
+      { 
+        title: 'LEAN MASS PRESERVATION', 
+        desc: 'May help preserve lean muscle during weight loss.' 
+      }
     ],
     footerTitle: 'Tirzepatide: A Dual GLP-1 and GIP Receptor Agonist for the Treatment of Obesity and Metabolic Disease',
     footerDesc: 'An easy-to-understand overview of tirzepatide, including what it is, how it works as a dual agonist (GLP-1 and GIP), current research findings, and important safety considerations.',
@@ -111,7 +155,7 @@ export const articleData: Record<string, any> = {
     title: 'MOTS-C',
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'CELLULAR ENERGY\nMETABOLIC HEALTH\nINSULIN SENSITIVITY',
-    bgImage: '/articles/mots-c-bg.jpg', 
+    bgImage: '/MOTS-c Background.png', 
     rightText: (
       <>
         ACTIVATING A<br/>
@@ -129,7 +173,7 @@ export const articleData: Record<string, any> = {
     title: 'SS-31',
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'MITOCHONDRIAL HEALTH\nCELLULAR PROTECTION\nRECOVERY & RESILIENCE',
-    bgImage: '/articles/ss-31-bg.jpg', 
+    bgImage: '/SS-31 Background.png', 
     rightText: (
       <>
         SUPPORTING<br/>
@@ -147,7 +191,7 @@ export const articleData: Record<string, any> = {
     title: 'SEMAX',
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'COGNITIVE PERFORMANCE\nNEUROPROTECTION\nFOCUS & EMOTIONAL BALANCE',
-    bgImage: '/articles/semax-bg.jpg', 
+    bgImage: '/SEMAX Background.png', 
     rightText: (
       <>
         ADVANCING BRAIN<br/>
@@ -165,12 +209,12 @@ export const articleData: Record<string, any> = {
     title: 'WOLVERINE',
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'BPC-157 10MG | TB-500 10MG\nSYNERGISTIC SUPPORT FOR TISSUE\nREPAIR & RECOVERY',
-    bgImage: '/articles/wolverine-bg.jpg', 
+    bgImage: '/WOLVERINE Background.png', 
     leftIcons: [
-      { label: 'TISSUE REPAIR', icon: '/icons/knee.svg' },
-      { label: 'ENHANCED HEALING', icon: '/icons/plus.svg' },
-      { label: 'IMPROVED MOBILITY', icon: '/icons/run.svg' },
-      { label: 'RECOVERY SUPPORT', icon: '/icons/shield.svg' }
+      { label: 'TISSUE REPAIR', icon: '/Group 34.png' },
+      { label: 'ENHANCED HEALING', icon: '/Group 35.png' },
+      { label: 'IMPROVED MOBILITY', icon: '/Group 36.png' },
+      { label: 'RECOVERY SUPPORT', icon: '/Group 37.png' }
     ],
     rightText: (
       <>
@@ -194,7 +238,7 @@ export const articleData: Record<string, any> = {
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'GHK-Cu 50MG | BPC-157 10MG |\nTB-500 10MG | KPV 10MG',
     leftTags: ['REPAIR | REGENERATE | RESTORE | OPTIMIZE'],
-    bgImage: '/articles/klow-bg.jpg', 
+    bgImage: '/image 169.png', 
     rightText: (
       <>
         REPAIR |<br/>
@@ -213,7 +257,7 @@ export const articleData: Record<string, any> = {
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'GHK-Cu 50MG | BPC-157 10MG |\nTB-500 10MG',
     leftTags: ['REPAIR | REGENERATE | RESTORE | OPTIMIZE'],
-    bgImage: '/articles/glow-bg.jpg', 
+    bgImage: '/GLOW Background 1.png', 
     rightText: (
       <>
         SKIN HEALTH.<br/>
@@ -233,7 +277,7 @@ export const articleData: Record<string, any> = {
     title: 'TESAMORELIN',
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'VISCERAL FAT REDUCTION\nGROWTH HORMONE SUPPORT\nSLEEP & RECOVERY',
-    bgImage: '/articles/tesamorelin-bg.jpg', 
+    bgImage: '/TESAMORELINE Background.png', 
     rightText: (
       <>
         CELLULAR RENEWAL<br/>
@@ -250,7 +294,7 @@ export const articleData: Record<string, any> = {
     title: 'SELANK',
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'ANXIOLYTIC SUPPORT\nSTRESS RESILIENCE\nCOGNITIVE CLARITY',
-    bgImage: '/articles/selank-bg.jpg', 
+    bgImage: '/SELANK Background.png', 
     rightText: (
       <>
         SUPPORTING<br/>
