@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
+
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight, ChevronRight, ChevronLeft, FileText } from 'lucide-react';
@@ -22,11 +23,11 @@ const researchLibrary = [
 ];
 
 const expandingVault = [
-  { name: 'SELANK', subtitle: 'COMING SOON', image: '/exp1.png', slug: 'selank' },
-  { name: 'THYMOSIN ALPHA-1', subtitle: 'COMING SOON', image: '/exp1.png', slug: 'thymosin-alpha-1' },
-  { name: 'SEMAX', subtitle: 'COMING SOON', image: '/exp1.png', slug: 'semax' },
-  { name: 'CJC-1295', subtitle: 'COMING SOON', image: '/exp1.png', slug: 'cjc-1295' },
-  { name: '5-AMINO-1MQ', subtitle: 'COMING SOON', image: '/exp1.png', slug: '5-amino-1mq' },
+  { name: 'SELANK', subtitle: 'COMING SOON', image: '/exp1.png', link: '/research/selank' },
+  { name: 'THYMOSIN ALPHA-1', subtitle: 'COMING SOON', image: '/exp1.png', link: '/research/thymosin-alpha-1' },
+  { name: 'SEMAX', subtitle: 'COMING SOON', image: '/exp1.png', link: '/research/semax' },
+  { name: 'CJC-1295', subtitle: 'COMING SOON', image: '/exp1.png', link: '/research/cjc-1295-dac' },
+  { name: '5-AMINO-1MQ', subtitle: 'COMING SOON', image: '/exp1.png', link: '/research/5-amino-1mq' },
 ];
 
 const researchArticles = [
@@ -160,8 +161,7 @@ export default function ResearchVaultPage() {
             </button>
           </div>
         </section>
-
-        {/* Expanding the Vault */}
+     {/* Expanding the Vault */}
         <section className="relative group">
           <h2 className="text-xl md:text-[22px] font-medium tracking-wide mb-6">
             Expanding the Vault
@@ -180,17 +180,21 @@ export default function ResearchVaultPage() {
               className="flex gap-4 overflow-x-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] scroll-smooth"
             >
               {expandingVault.map((item, index) => (
-                <div key={index} className="min-w-[200px] w-[200px] md:min-w-[220px] md:w-[220px] shrink-0 bg-[#070707] border border-white/10 rounded-lg overflow-hidden flex flex-col">
+                <Link 
+                  href={item.link}
+                  key={index} 
+                  className="min-w-[200px] w-[200px] md:min-w-[220px] md:w-[220px] shrink-0 bg-[#070707] border border-white/10 rounded-lg overflow-hidden flex flex-col hover:border-[#B98135] transition-colors cursor-pointer"
+                >
                   <div className="relative h-[220px] w-full bg-[#0a0a0a]">
-                    <Image src={item.image} alt={item.name} fill className="object-cover " />
+                    <Image src={item.image} alt={item.name} fill className="object-cover" />
                   </div>
                   <div className="p-4 flex flex-col flex-1 justify-center items-center text-center">
-                    <h3 className="text-s font-bold text-white mb-1 uppercase tracking-wider">{item.name}</h3>
+                    <h3 className="text-sm font-bold text-white mb-1 uppercase tracking-wider">{item.name}</h3>
                     <p className="text-[14px] text-[#B98135] font-semibold uppercase tracking-widest">
                       {item.subtitle}
                     </p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
 
