@@ -9,10 +9,10 @@ export default function TrustBanner() {
     { icon: <ShieldCheck size={20} className="text-[#B98135]" strokeWidth={1.5} />, text: 'THIRD-PARTY LAB TESTED' },
     { 
       icon: <Image src="/redleaf.png" alt="Leaf Icon" width={20} height={20} className="object-contain" />, 
-      text: 'TRUSTED CANADIAN SELLER' 
+      text: 'TRUSTED CANADIAN' 
     },
     { icon: <FileText size={20} className="text-[#B98135]" strokeWidth={1.5} />, text: 'COA ON EVERY ORDER' },
-    { icon: <Package size={20} className="text-[#B98135]" strokeWidth={1.5} />, text: 'DISCREET PACKAGING' },
+    { icon: <Package size={20} className="text-[#B98135]" strokeWidth={1.5} />, text: 'SECURE PACKAGING' },
   ];
 
   return (

@@ -57,7 +57,7 @@ export default function AccessGate() {
         <div className="text-xs md:text-sm text-gray-300 space-y-2 md:space-y-4 mb-6 md:mb-10 font-light leading-relaxed px-2">
           <p>
             You must be of legal age in your province and a qualified research professional.<br className="hidden md:block" />
-            All products are for in vitro laboratory research only — not for human or animal consumption.
+            All products are for in vitro laboratory research only not for human or animal consumption.
           </p>
           <p>
             By entering you confirm you are 19+ and accessing this site in a qualified research capacity.<br className="hidden md:block" />
