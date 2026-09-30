@@ -28,14 +28,14 @@ export default function HeroSection() {
 
           {/* Top Label & Divider */}
           <span className="text-[#B98135] text-[11px] tracking-[0.2em] uppercase font-medium">
-            Canada's Most Transparent Research Compounds
+            Research Compounds . Canada
           </span>
           <div className="w-12 h-[2px] bg-[#B98135] mt-3 mb-8"></div>
 
           {/* Headline */}
           <h1 className="text-[38px] md:text-[46px] lg:text-[52px] font-bold leading-[1.08] tracking-normal mb-8 uppercase">
-            Verified by science.<br />
-            Defined by purity.
+            Transparency.<br />
+            Through Testing.
           </h1>
 
           {/* Checklist */}
@@ -45,18 +45,18 @@ export default function HeroSection() {
             </p>
             <p>Every batch tested and documented.</p>
             <p>
-              Every COA <span className="text-[#B98135]">Accessible</span> before you order.
+              Every COA <span className="text-[#B98135]">Accessible</span>.
             </p>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-10">
              <button className="w-full sm:w-auto px-7 py-3.5 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:from-[#B77D33] hover:to-[#94590D] text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer">
-  SHOP NOW <ArrowUpRight size={15} strokeWidth={2.5} />
+  VIEW RESEARCH CATALOG<ArrowUpRight size={15} strokeWidth={2.5} />
 </button>
 
             <button className="w-full sm:w-auto px-7 py-3.5 border border-white/80 hover:bg-white/10 text-white text-xs font-semibold tracking-[0.15em] rounded-[4px] transition-all duration-300 cursor-pointer">
-              VIEW LAB RESULTS
+              VIEW BATCH DOCUMENTATION
             </button>
           </div>
         </div>

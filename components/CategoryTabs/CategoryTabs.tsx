@@ -15,16 +15,16 @@ const tabsData = [
     id: 'core-metabolic',
     label: 'Core Metabolic',
     iconSrc: '/tabi1.png', 
-    titleWhite: 'METABOLIC. PERFORMANCE.',
-    titleGold: 'REDEFINED.',
-    description: 'Retatrutide is a multi-agonist peptide designed to regulate appetite, preserve lean mass, and maximize metabolic efficiency.',
-    buttonText: 'EXPLORE ALL CORE PRODUCTS',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/core-metabolic',
     imageSrc: '/tab1.png', 
     features: [
-      { icon: Crosshair, text: 'Appetite Control' },
-      { icon: BarChart2, text: 'Lean Mass Support' },
-      { icon: RefreshCw, text: 'Metabolic Efficiency' }
+      { icon: Crosshair, text: 'Rsearch Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   },
   {
@@ -34,7 +34,7 @@ const tabsData = [
     titleWhite: 'ENDOCRINE. OPTIMIZATION.',
     titleGold: 'ELEVATED.',
     description: 'Advanced peptides formulated to support natural growth hormone pathways, recovery, and deep sleep cycles.',
-    buttonText: 'EXPLORE ENDOCRINE PRODUCTS',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/endocrine',
     imageSrc: '/tab2.png', 
     features: [
@@ -50,7 +50,7 @@ const tabsData = [
     titleWhite: 'CELLULAR. DEFENSE.',
     titleGold: 'FORTIFIED.',
     description: 'Mitochondrial targeted compounds designed to enhance cellular energy production and fortify immune response.',
-    buttonText: 'EXPLORE IMMUNITY PRODUCTS',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/immunity',
     imageSrc: '/tab3.png',
     features: [
@@ -66,7 +66,7 @@ const tabsData = [
     titleWhite: 'TISSUE. REGENERATION.',
     titleGold: 'ACCELERATED.',
     description: 'Systemic healing compounds that promote rapid tissue repair, joint health, and anti-aging benefits.',
-    buttonText: 'EXPLORE LONGEVITY PRODUCTS',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/longevity',
     imageSrc: '/tab4.png',
     features: [
@@ -82,7 +82,7 @@ const tabsData = [
     titleWhite: 'COGNITIVE. CLARITY.',
     titleGold: 'ENHANCED.',
     description: 'Nootropic peptides engineered to reduce neuro-inflammation, alleviate anxiety, and sharpen mental focus.',
-    buttonText: 'EXPLORE NEURO PRODUCTS',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/neuro',
     imageSrc: '/tab5.png',
     features: [
@@ -98,7 +98,7 @@ const tabsData = [
     titleWhite: 'SYNERGISTIC. PROTOCOLS.',
     titleGold: 'MAXIMIZED.',
     description: 'Carefully curated peptide stacks designed to work in synergy for specific, accelerated research outcomes.',
-    buttonText: 'EXPLORE ALL STACKS',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/stacks',
     imageSrc: '/tab6.png',
     features: [
@@ -114,7 +114,7 @@ const tabsData = [
     titleWhite: 'LABORATORY. ESSENTIALS.',
     titleGold: 'SUPPLIED.',
     description: 'Premium bacteriostatic water, sterile vials, and research accessories required for accurate reconstitution.',
-    buttonText: 'EXPLORE ACCESSORIES',
+    buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/accessories',
     imageSrc: '/tab7.png',
     features: [

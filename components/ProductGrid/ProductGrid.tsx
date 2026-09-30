@@ -65,11 +65,11 @@ export default function ProductGrid() {
         </div>
         
         <h2 className="text-3xl md:text-[40px] font-medium tracking-wide text-white mb-4">
-          TOP RESEARCHED COMPOUNDS
+          RESEARCHED COMPOUNDS
         </h2>
         
         <p className="text-gray-300 text-sm md:text-base">
-          Frequently selected by <span className="text-[#B98135]">research partners</span> across Canada
+          Research Compounds <span className="text-[#B98135]"> with batch specific </span> analytical documentation
         </p>
       </div>
 
@@ -109,15 +109,15 @@ export default function ProductGrid() {
               {product.name}
             </h3>
             
-            <p className="text-gray-400 text-sm mb-3">
+            {/* <p className="text-gray-400 text-sm mb-3">
               {product.price}
-            </p>
+            </p> */}
 
              <button 
                 onClick={() => handleAddToCart(product.name)}
                 className=" cursor-pointer py-1 px-5 flex items-center justify-center gap-2 border border-[#B77D33] group-hover:border-[#B98135] group-hover:text-[#B98135] rounded-[4px] text-sm tracking-widest  transition-all duration-300"
 >
-                 Shop Now <ArrowUpRight size={16} strokeWidth={1.5} />
+                 View Details <ArrowUpRight size={16} strokeWidth={1.5} />
             </button>
             
           </div>
