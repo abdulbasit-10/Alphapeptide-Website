@@ -17,7 +17,7 @@ export const articleData: Record<string, any> = {
     badge: 'RESEARCH OVERVIEW',
     subtitle: 'THYMOSIN BETA 4',
     leftTags: ['TISSUE REPAIR', 'MUSCULAR RECOVERY', 'ENHANCED MOBILITY'],
-    bgImage: '/articles/tb-500-bg.jpg', 
+    bgImage: '/2343443333.png', 
     rightHexImage: '/hexes/tb-500-hexes.png', // The single composite image containing all 3 hexes (194x610)
     rightHexText: [
       { 
