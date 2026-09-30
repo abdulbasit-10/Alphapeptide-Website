@@ -109,9 +109,9 @@ export default function ProductGrid() {
               {product.name}
             </h3>
             
-            {/* <p className="text-gray-400 text-sm mb-3">
+            <p className="text-gray-400 text-sm mb-3">
               {product.price}
-            </p> */}
+            </p>
 
              <button 
                 onClick={() => handleAddToCart(product.name)}

@@ -71,14 +71,14 @@ export default function ResearchVaultPage() {
    
 
       {/* Hero Section */}
-      <div className="relative w-full py-20 md:py-32 overflow-hidden bg-black flex flex-col justify-center border-b border-white/5">
+      <div className="relative w-full py-20 md:py-16 overflow-hidden bg-black flex flex-col justify-center border-b border-white/5">
         <div className="absolute inset-0 z-0 pointer-events-none">
           <Image 
             src="/research-hero.png" 
             alt="Research Vault Background" 
             fill 
             priority
-            className="object-cover object-center md:object-right opacity-100" 
+            className="object-cover object-center md:object-cover " 
           />
           
         </div>

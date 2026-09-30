@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { CheckCircle2, FileText } from 'lucide-react';
 import Footer from '../../../components/Footer/Footer'; 
 import { researchData } from '../../../data/researchData'; 
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 // Centralized Data Object for the Dynamic Template
 const compoundData = {
@@ -55,6 +56,7 @@ const compoundData = {
 
 export default function CompoundDetailPage({ params }: { params: Promise<{ compound: string }> }) {
   
+  
   // 1. Unwrap the params Promise using React.use()
   const resolvedParams = React.use(params);
   
@@ -71,7 +73,7 @@ export default function CompoundDetailPage({ params }: { params: Promise<{ compo
        {/* ... the rest of your section code remains exactly the same ... */}
       
     {/* --- HERO SECTION --- */}
-      <section className="relative w-full min-h-[650px] md:min-h-[800px] lg:min-h-[950px] bg-[#030303] flex flex-col justify-start border-b border-white/5 overflow-hidden">
+      <section className="relative w-full min-h-[550px] md:min-h-[600px] lg:min-h-[850px] bg-[#030303] flex flex-col justify-start border-b border-white/5 overflow-hidden">
         
         {/* Background Image Container */}
         <div className="absolute inset-0 z-0 w-full h-full">
