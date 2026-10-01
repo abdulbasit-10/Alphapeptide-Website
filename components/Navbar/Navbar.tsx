@@ -77,7 +77,19 @@ export default function Navbar() {
     startAutoRotate();
   };
 
-  const navLinks = ['Home', 'Shop', 'Lab Results', 'Research', 'FAQ', 'Affiliate', 'Wholesale', 'Contact Us'];
+  // ✅ Label aur href ab alag hain. Label badalne se route nahi tootega.
+  // "Research Catalog" abhi /shop folder par ja raha hai.
+  // Agar folder rename karein (app/research-catalog) to sirf yahan href badal dein.
+  const navLinks = [
+    { label: 'Home', href: '/home' },
+    { label: 'Research Catalog', href: '/shop' },
+    { label: 'Lab Results', href: '/lab-results' },
+    { label: 'Research', href: '/research' },
+    { label: 'FAQ', href: '/faq' },
+    { label: 'Affiliate', href: '/affiliate' },
+    { label: 'Wholesale', href: '/wholesale' },
+    { label: 'Contact Us', href: '/contact-us' },
+  ];
 
   return (
     <nav className="w-full bg-black text-white flex flex-col z-50 relative border-b border-white/10">
@@ -104,16 +116,13 @@ export default function Navbar() {
         </Link>
 
         <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-          {navLinks.map((link) => {
-            // Keeps your original routing: "Home" -> "/home", "Shop" -> "/shop"
-            const href = `/${link.toLowerCase().replace(' ', '-')}`;
-            
+          {navLinks.map(({ label, href }) => {
             // Checks if the current path is an exact match, or if it's a sub-page (like /shop/core-metabolic)
             const isActive = pathname === href || pathname.startsWith(`${href}/`);
 
             return (
               <Link 
-                key={link} 
+                key={href} 
                 href={href} 
                 className={`text-[13px] leading-none transition-colors ${
                   isActive 
@@ -121,7 +130,7 @@ export default function Navbar() {
                     : 'text-gray-200 font-light hover:text-[#B77D33]'
                 }`}
               >
-                {link}
+                {label}
               </Link>
             );
           })}

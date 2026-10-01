@@ -58,7 +58,7 @@ export default function ShopHero({ initialCategory = 'all' }: { initialCategory?
         <div className="text-xs text-gray-400 flex items-center gap-2 mb-3">
           <Link href="/" className="hover:text-[#B98135] transition-colors">Home</Link>
           <span className="text-gray-600">›</span>
-          <Link href="/shop" className="hover:text-[#B98135] transition-colors">Shop</Link>
+          <Link href="/research-catalog" className="hover:text-[#B98135] transition-colors">Research Catalog</Link>
           
           {activeCategory !== 'all' && (
             <>
@@ -72,7 +72,7 @@ export default function ShopHero({ initialCategory = 'all' }: { initialCategory?
 
         <div className="max-w-xl">
           <h1 className="text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight text-white mb-1">
-            SHOP
+            RESEARCH CATALOG
           </h1>
           <p className="text-gray-300 text-xs md:text-[14px] leading-relaxed max-w-[320px]">
             Premium research compounds. Lab verified.<br />

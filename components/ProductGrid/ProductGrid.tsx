@@ -15,7 +15,7 @@ export default function ProductGrid() {
     // Fire the toast notification
     toast.success(`${productName} added to cart!`, {
       style: { border: '1px solid #B98135', backgroundColor: '#0a0a0a', color: 'white' },
-      icon: '🛒',
+      icon: <span>🛒</span>,
     });
   };
 

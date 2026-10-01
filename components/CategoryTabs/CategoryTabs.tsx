@@ -22,7 +22,7 @@ const tabsData = [
     buttonLink: '/shop/core-metabolic',
     imageSrc: '/tab1.png', 
     features: [
-      { icon: Crosshair, text: 'Rsearch Use Only' },
+      { icon: Crosshair, text: 'Research Use Only' },
       { icon: BarChart2, text: 'Batch Documentation' },
       { icon: RefreshCw, text: 'Analytical Testing' }
     ]
@@ -31,96 +31,96 @@ const tabsData = [
     id: 'endocrine-growth',
     label: 'Endocrine & Growth',
     iconSrc: '/tabi2.png',
-    titleWhite: 'ENDOCRINE. OPTIMIZATION.',
-    titleGold: 'ELEVATED.',
-    description: 'Advanced peptides formulated to support natural growth hormone pathways, recovery, and deep sleep cycles.',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
     buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/endocrine',
     imageSrc: '/tab2.png', 
     features: [
-      { icon: Crosshair, text: 'Cellular Repair' },
-      { icon: BarChart2, text: 'Growth Support' },
-      { icon: RefreshCw, text: 'Recovery Speed' }
+      { icon: Crosshair, text: 'Research Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   },
   {
     id: 'metabolic-immunity',
     label: 'Metabolic Immunity',
     iconSrc: '/tabi3.png',
-    titleWhite: 'CELLULAR. DEFENSE.',
-    titleGold: 'FORTIFIED.',
-    description: 'Mitochondrial targeted compounds designed to enhance cellular energy production and fortify immune response.',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
     buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/immunity',
     imageSrc: '/tab3.png',
     features: [
-      { icon: Crosshair, text: 'Mitochondrial Health' },
-      { icon: BarChart2, text: 'Energy Output' },
-      { icon: RefreshCw, text: 'Immune Defense' }
+      { icon: Crosshair, text: 'Research Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   },
   {
     id: 'longevity',
     label: 'Longevity & Regeneration',
     iconSrc: '/tabi4.png',
-    titleWhite: 'TISSUE. REGENERATION.',
-    titleGold: 'ACCELERATED.',
-    description: 'Systemic healing compounds that promote rapid tissue repair, joint health, and anti-aging benefits.',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
     buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/longevity',
     imageSrc: '/tab4.png',
     features: [
-      { icon: Crosshair, text: 'Joint Healing' },
-      { icon: BarChart2, text: 'Anti-Aging' },
-      { icon: RefreshCw, text: 'Tissue Repair' }
+      { icon: Crosshair, text: 'Research Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   },
   {
     id: 'neuro-cognitive',
     label: 'Neuro Cognitive',
     iconSrc: '/tabi5.png',
-    titleWhite: 'COGNITIVE. CLARITY.',
-    titleGold: 'ENHANCED.',
-    description: 'Nootropic peptides engineered to reduce neuro-inflammation, alleviate anxiety, and sharpen mental focus.',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
     buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/neuro',
     imageSrc: '/tab5.png',
     features: [
-      { icon: Crosshair, text: 'Mental Focus' },
-      { icon: BarChart2, text: 'Anxiety Relief' },
-      { icon: RefreshCw, text: 'Neuroprotection' }
+      { icon: Crosshair, text: 'Research Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   },
   {
     id: 'stacks',
     label: 'Stacks',
     iconSrc: '/tabi6.png',
-    titleWhite: 'SYNERGISTIC. PROTOCOLS.',
-    titleGold: 'MAXIMIZED.',
-    description: 'Carefully curated peptide stacks designed to work in synergy for specific, accelerated research outcomes.',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
     buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/stacks',
     imageSrc: '/tab6.png',
     features: [
-      { icon: Crosshair, text: 'Synergistic Effects' },
-      { icon: BarChart2, text: 'Targeted Goals' },
-      { icon: RefreshCw, text: 'Optimized Dosing' }
+      { icon: Crosshair, text: 'Research Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   },
   {
     id: 'accessories',
     label: 'Accessories',
     iconSrc: '/tabi7.png',
-    titleWhite: 'LABORATORY. ESSENTIALS.',
-    titleGold: 'SUPPLIED.',
-    description: 'Premium bacteriostatic water, sterile vials, and research accessories required for accurate reconstitution.',
+    titleWhite: 'RESEARCH. COMPOUNDS.',
+    titleGold: 'DEFINED BY PURITY.',
+    description: 'High quality lyophilized research compounds, verified through analysis and documented by batch.',
     buttonText: 'VIEW RESEARCH CATALOG',
     buttonLink: '/shop/accessories',
     imageSrc: '/tab7.png',
     features: [
-      { icon: Crosshair, text: 'Sterile Grade' },
-      { icon: BarChart2, text: 'Lab Verified' },
-      { icon: RefreshCw, text: 'Safe Reconstitution' }
+      { icon: Crosshair, text: 'Research Use Only' },
+      { icon: BarChart2, text: 'Batch Documentation' },
+      { icon: RefreshCw, text: 'Analytical Testing' }
     ]
   }
 ];

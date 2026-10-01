@@ -172,7 +172,7 @@ export default function ShopGrid({ categorySlug = 'all' }: { categorySlug?: stri
                         onClick={() => addToCart({ name: product.name, price: product.numericPrice, image: product.image })} 
                         className="cursor-pointer py-1 px-5 flex items-center justify-center gap-2 border border-[#B77D33] group-hover:border-[#B98135] group-hover:text-[#B98135] rounded-[4px] text-sm tracking-widest transition-all duration-300 text-white"
                       >
-                        Shop Now <ArrowUpRight size={16} strokeWidth={1.5} />
+                        View Details <ArrowUpRight size={16} strokeWidth={1.5} />
                       </button>
                     ) : (
                       <button disabled className="cursor-not-allowed py-1 px-5 flex items-center justify-center gap-2 border border-white/5 rounded-[4px] bg-[#030303]/50 text-gray-600 text-sm tracking-widest">
