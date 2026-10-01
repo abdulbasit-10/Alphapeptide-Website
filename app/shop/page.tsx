@@ -5,23 +5,15 @@ import SupportInfoBar from '../../components/SupportInfoBar/SupportInfoBar';
 import Footer from '../../components/Footer/Footer';
 
 export default function ShopPage() {
-  const handleCategoryChange = (categoryId: string) => {
-    // wire this into your ProductGrid filtering once that's built
-    console.log('Category selected:', categoryId);
-  };
-
   return (
-    
     <div className="min-h-screen bg-[#030303] text-white flex flex-col pb-12">
-      <ShopHero onCategoryChange={handleCategoryChange} />
+      <ShopHero />
       {/* ProductGrid goes here next, using the selected category */}
       <ShopGrid />
       <div className='px-12 pb-10'>
-      <SupportInfoBar />
+        <SupportInfoBar />
       </div>
       <Footer />
-      
-    </div> 
-    
+    </div>
   );
 }
