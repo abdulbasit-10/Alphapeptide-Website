@@ -144,7 +144,7 @@ export default function ShopGrid({ categorySlug = 'all' }: { categorySlug?: stri
                 )}
 
                 {/* Homepage-matched Image Area */}
-                <Link href={`/shop/${product.categoryId}/${product.slug}`} className={`relative flex items-center justify-center ${viewMode === 'grid' ? 'w-full h-[250px] mb-3' : 'w-48 h-full border-r border-white/5'}`}>
+                <Link href={`/research-catalog/${product.categoryId}/${product.slug}`} className={`relative flex items-center justify-center ${viewMode === 'grid' ? 'w-full h-[250px] mb-3' : 'w-48 h-full border-r border-white/5'}`}>
                   <div className="absolute inset-0 bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-full blur-3xl pointer-events-none"></div>
                   <Image 
                     src={product.image} 
@@ -156,7 +156,7 @@ export default function ShopGrid({ categorySlug = 'all' }: { categorySlug?: stri
 
                 {/* Product Details & Action */}
                 <div className={`flex flex-col ${viewMode === 'grid' ? 'w-full items-center text-center' : 'flex-grow p-6 justify-center'}`}>
-                  <Link href={`/shop/${product.categoryId}/${product.slug}`}>
+                  <Link href={`/research-catalog/${product.categoryId}/${product.slug}`}>
                     <h3 className="text-lg font-semibold text-white tracking-wide mb-1 hover:text-[#B98135] transition-colors">
                       {product.name}
                     </h3>

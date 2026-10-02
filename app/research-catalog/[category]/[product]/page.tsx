@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useParams, useRouter } from 'next/navigation';
 import { 
   ArrowUpRight, 
+  ArrowRight,
   Crosshair, 
   BarChart2, 
   RefreshCw, 
@@ -14,8 +15,17 @@ import {
   Plus,
   FileText,
   List,
+  Info,
+  Box,
+  Clock,
+  Microscope,
+  XCircle,
+  GraduationCap,
+  ClipboardList,
+  Truck,
   ShieldCheck,
   FileSpreadsheet,
+  AlertCircle,
   Plus as PlusIcon
 } from 'lucide-react';
 
@@ -34,11 +44,76 @@ export const categories = [
   { id: 'accessories', label: 'Accessories', iconSrc: '/tabi7.png' },
 ];
 
+// --- Research Use Only expanded content (static for all products) ---
+const researchPointsLeft: any[] = [
+  {
+    icon: Microscope,
+    title: 'Non-clinical research only',
+    text: 'For laboratory research, analytical reference and assay development.',
+  },
+  {
+    icon: XCircle,
+    title: 'No human or animal use',
+    text: 'Not for consumption or any clinical, therapeutic, diagnostic, cosmetic, food, supplement or veterinary purpose.',
+  },
+  {
+    icon: GraduationCap,
+    title: 'Qualified personnel and facilities',
+    text: 'Use only by trained personnel in suitably equipped research facilities.',
+  },
+];
+
+const researchPointsRight: any[] = [
+  {
+    icon: ClipboardList,
+    title: 'No health or treatment claims',
+    text: 'Must not be represented as intended to diagnose, treat, mitigate, cure or prevent any disease or medical condition, or as authorized or approved by Health Canada.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Purchaser responsibility',
+    text: 'Purchasers are responsible for ensuring compliance with all applicable laws, regulations, institutional requirements and laboratory safety procedures.',
+  },
+  {
+    badge: '21+',
+    title: 'Age restriction',
+    text: 'Purchasers must be 21 years of age or older.',
+  },
+];
+
+// Change these links to your real pages
+const policyLinks = [
+  { label: 'Terms & Conditions', href: '/terms-and-conditions', icon: FileText },
+  { label: 'Shipping & Returns', href: '/shipping-returns', icon: Truck },
+  { label: 'Refund Policy', href: '/refund-policy', icon: FileText },
+];
+
+function ResearchPoint({ point }: { point: any }) {
+  const Icon = point.icon;
+  return (
+    <div className="flex items-start gap-4">
+      <div className="w-11 flex-shrink-0 flex justify-center pt-0.5">
+        {point.badge ? (
+          <div className="w-11 h-11 rounded-full border-2 border-white flex items-center justify-center text-white text-xs font-bold">
+            {point.badge}
+          </div>
+        ) : (
+          <Icon size={34} strokeWidth={1.4} className="text-white" />
+        )}
+      </div>
+      <div>
+        <h5 className="text-white text-sm font-medium mb-1">{point.title}</h5>
+        <p className="text-gray-400 text-xs leading-relaxed">{point.text}</p>
+      </div>
+    </div>
+  );
+}
+
 // Product database dictionary for your compounds
 const productsData: Record<string, any> = {
   'retatrutide': {
     name: 'RETATRUTIDE',
-    tagline: 'TRIPLE AGONIST',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'CORE METABOLIC RESEARCH',
     categorySlug: 'core-metabolic',
     description: 'Retatrutide is a next-generation, investigational triple agonist targeting GLP-1, GIP, and glucagon receptors, supporting appetite regulation, lean mass preservation, and metabolic efficiency.',
@@ -78,7 +153,7 @@ const productsData: Record<string, any> = {
   },
   'tirzepatide': {
     name: 'TIRZEPATIDE',
-    tagline: 'DUAL GIP/GLP-1 AGONIST',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'CORE METABOLIC RESEARCH',
     categorySlug: 'core-metabolic',
     description: 'Tirzepatide is a next-generation, investigational dual GIP/GLP-1 receptor agonist, studied for its potential to support glycemic control, appetite regulation, and metabolic health.',
@@ -99,7 +174,7 @@ const productsData: Record<string, any> = {
   },
   'tesamorelin': {
     name: 'TESAMORELIN',
-    tagline: 'GROWTH HORMONE SECRETAGOGUE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'ENDOCRINE & GROWTH RESEARCH',
     categorySlug: 'endocrine-growth',
     description: 'Tesamorelin is a GHRH analog that stimulates the body\'s natural release of growth hormone to support visceral fat reduction, lean body composition, metabolic health, and overall vitality.',
@@ -120,7 +195,7 @@ const productsData: Record<string, any> = {
   },
   'cjc-1295-w-dac': {
     name: 'CJC-1295 w/DAC',
-    tagline: 'GROWTH HORMONE SECRETAGOGUE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'ENDOCRINE & GROWTH RESEARCH',
     categorySlug: 'endocrine-growth',
     description: 'CJC-1295 with DAC is a long-acting growth hormone releasing hormone (GHRH)-analog designed to stimulate the body\'s natural release of growth hormone, supporting lean body composition, recovery, and overall vitality.',
@@ -141,7 +216,7 @@ const productsData: Record<string, any> = {
   },
   'ss-31': {
     name: 'SS-31',
-    tagline: 'MITOCHONDRIAL PEPTIDE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'METABOLIC IMMUNITY RESEARCH',
     categorySlug: 'metabolic-immunity',
     description: 'SS-31 is a novel mitochondrial-targeted research compound studied for its potential to support mitochondrial function, reduce oxidative stress, and optimize metabolic and immune health.',
@@ -162,7 +237,7 @@ const productsData: Record<string, any> = {
   },
   'mots-c': {
     name: 'MOTS-c',
-    tagline: 'MITOCHONDRIAL-DERIVED PEPTIDE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'METABOLIC IMMUNITY RESEARCH',
     categorySlug: 'metabolic-immunity',
     description: 'MOTS-c is a mitochondrial-derived peptide studied for its potential to support metabolic homeostasis, insulin sensitivity, energy balance, and cellular stress resistance.',
@@ -183,7 +258,7 @@ const productsData: Record<string, any> = {
   },
   'bpc-157': {
     name: 'BPC-157',
-    tagline: 'BODY PROTECTIVE COMPOUND',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'LONGEVITY & REGENERATION',
     categorySlug: 'longevity-regeneration',
     description: 'BPC-157 is a pentadecapeptide studied for its potential to support tissue repair, gut health, inflammation reduction, and overall cellular recovery.',
@@ -204,7 +279,7 @@ const productsData: Record<string, any> = {
   },
   'tb-500': {
     name: 'TB-500',
-    tagline: 'TISSUE REPAIR PEPTIDE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'LONGEVITY & REGENERATION',
     categorySlug: 'longevity-regeneration',
     description: 'TB-500 is a synthetic fraction of Thymosin Beta-4, researched for its role in cellular migration, tissue repair, and down-regulation of inflammatory markers.',
@@ -225,7 +300,7 @@ const productsData: Record<string, any> = {
   },
   'ghk-cu': {
     name: 'GHK-Cu',
-    tagline: 'COPPER PEPTIDE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'LONGEVITY & REGENERATION',
     categorySlug: 'longevity-regeneration',
     description: 'GHK-Cu is a naturally occurring copper complex studied for its potential in tissue remodeling, antioxidant activation, and stimulation of collagen synthesis.',
@@ -246,7 +321,7 @@ const productsData: Record<string, any> = {
   },
   'semax': {
     name: 'SEMAX',
-    tagline: 'NEUROPEPTIDE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'NEURO COGNITIVE RESEARCH',
     categorySlug: 'neuro-cognitive',
     description: 'Semax is a synthetic peptide originally developed for its potential to support cognitive function, focus, and neuroprotection.',
@@ -267,7 +342,7 @@ const productsData: Record<string, any> = {
   },
   'selank': {
     name: 'SELANK',
-    tagline: 'NEUROPEPTIDE',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'NEURO COGNITIVE RESEARCH',
     categorySlug: 'neuro-cognitive',
     description: 'Selank is a synthetic regulatory peptide studied for its potential anxiolytic properties, supporting emotional balance, and cognitive function.',
@@ -288,7 +363,7 @@ const productsData: Record<string, any> = {
   },
   'glow': {
     name: 'GLOW',
-    tagline: 'AESTHETIC PEPTIDE BLEND',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'STACK RESEARCH',
     categorySlug: 'stacks',
     description: 'GLOW is a synergistic peptide stack designed for aesthetic research, formulated to support cellular regeneration and overall vitality.',
@@ -309,7 +384,7 @@ const productsData: Record<string, any> = {
   },
   'klow': {
     name: 'KLOW',
-    tagline: 'METABOLIC SYNERGY BLEND',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'STACK RESEARCH',
     categorySlug: 'stacks',
     description: 'KLOW is an advanced peptide stack researched for its potential to support metabolic efficiency, energy balance, and lean mass optimization.',
@@ -330,7 +405,7 @@ const productsData: Record<string, any> = {
   },
   'wolverine': {
     name: 'WOLVERINE',
-    tagline: 'RECOVERY & REPAIR BLEND',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'STACK RESEARCH',
     categorySlug: 'stacks',
     description: 'WOLVERINE is a potent stack combining tissue-repairing compounds to comprehensively support cellular recovery, inflammation reduction, and healing.',
@@ -351,7 +426,7 @@ const productsData: Record<string, any> = {
   },
   'bac-water': {
     name: 'BACTERIOSTATIC WATER',
-    tagline: 'RECONSTITUTION SOLUTION',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'ACCESSORIES',
     categorySlug: 'accessories',
     description: 'Bacteriostatic water for injection containing 0.9% benzyl alcohol added as a bacteriostatic preservative.',
@@ -371,7 +446,7 @@ const productsData: Record<string, any> = {
   },
   'syringes': {
     name: 'SYRINGES',
-    tagline: 'MEASUREMENT & ADMINISTRATION',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'ACCESSORIES',
     categorySlug: 'accessories',
     description: 'High-quality, sterile syringes for precise measurement and administration of research compounds.',
@@ -389,7 +464,7 @@ const productsData: Record<string, any> = {
   },
   'prep-pads': {
     name: 'PREP PADS',
-    tagline: 'STERILE ALCOHOL PADS',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'ACCESSORIES',
     categorySlug: 'accessories',
     description: 'Individually wrapped, sterile alcohol prep pads for surface and vial sterilization.',
@@ -407,7 +482,7 @@ const productsData: Record<string, any> = {
   },
   'vial-caps': {
     name: 'VIAL CAPS',
-    tagline: 'PROTECTIVE CLOSURES',
+    tagline: 'RESEARCH COMPOUND',
     categoryLabel: 'ACCESSORIES',
     categorySlug: 'accessories',
     description: 'Protective snap-off caps for research vials, available in multiple colors for easy categorization.',
@@ -440,12 +515,36 @@ export default function ProductDetail() {
   const { addToCart } = useCart();
   const activePack = product.packSizes.find((p: any) => p.label === selectedPack) || product.packSizes[0];
 
+  // Other accordion cards (Research Use Only is handled separately below)
+  const otherAccordions = [
+    {
+      id: 'batch',
+      icon: List,
+      title: 'BATCH DOCUMENTATION',
+      content: 'Batch-specific documentation, including third-party certificates of analysis (COA) and HPLC purity reports, is available for each production lot.',
+    },
+    {
+      id: 'description',
+      icon: Info,
+      title: 'PRODUCT INFORMATION',
+      content: product.description,
+    },
+    {
+      id: 'storage',
+      icon: Box,
+      title: 'STORAGE & HANDLING DOCUMENTATION',
+      content: 'Store lyophilized product in a cool, dry place away from direct light, with the vial tightly sealed. Refer to the batch documentation for lot-specific storage guidance.',
+    },
+  ];
+
+  const isResearchOpen = openAccordion === 'research';
+
   const handleCategorySelect = (id: string) => {
     setActiveCategory(id);
     if (id === 'all') {
-      router.push('/shop');
+      router.push('/research-catalog');
     } else {
-      router.push(`/shop/${id}`);
+      router.push(`/research-catalog/${id}`);
     }
   };
 
@@ -482,25 +581,21 @@ export default function ProductDetail() {
             <div className="text-[11px] text-gray-400 flex items-center gap-2 mb-6 uppercase tracking-widest font-medium">
               <Link href="/" className="hover:text-[#B98135] transition-colors cursor-pointer">Home</Link>
               <span className="text-gray-600">›</span>
-              <Link href="/shop" className="hover:text-[#B98135] transition-colors cursor-pointer">Shop</Link>
+              <Link href="/research-catalog" className="hover:text-[#B98135] transition-colors cursor-pointer">Research Catalog</Link>
               <span className="text-gray-600">›</span>
-              <Link href={`/shop/${product.categorySlug}`} className="hover:text-[#B98135] transition-colors cursor-pointer">Core Metabolic</Link>
+              <Link href={`/research-catalog/${product.categorySlug}`} className="hover:text-[#B98135] transition-colors cursor-pointer">Core Metabolic</Link>
               <span className="text-gray-600">›</span>
               <span className="text-[#B98135]">{product.name}</span>
             </div>
 
             {/* Title & Description */}
             <div className="max-w-xl mb-8">
-              <h1 className="text-3xl md:text-4xl lg:text-[48px] font-bold tracking-tight text-white mb-2">SHOP</h1>
-              <p className="text-gray-300 text-xs md:text-[14px] leading-relaxed">
-                Premium research compounds. Lab verified. Batch traceable.
-              </p>
             </div>
 
             {/* Sub-Compounds Tabs */}
-            <div className="mb-12">
+            <div className="mb-8">
               <h3 className="text-[#B98135] text-[10px] uppercase tracking-widest font-bold mb-3">
-                {product.categorySlug === 'core-metabolic' ? 'CORE METABOLIC COMPOUNDS' : 
+                {product.categorySlug === 'core-metabolic' ? 'CORE METABOLIC' : 
                  product.categorySlug === 'endocrine-growth' ? 'ENDOCRINE & GROWTH COMPOUNDS' : 
                  product.categorySlug === 'metabolic-immunity' ? 'METABOLIC IMMUNITY COMPOUNDS' :
                  product.categorySlug === 'longevity-regeneration' ? 'LONGEVITY & REGENERATION COMPOUNDS' :
@@ -511,84 +606,84 @@ export default function ProductDetail() {
               
               {product.categorySlug === 'core-metabolic' ? (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/core-metabolic/retatrutide" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'retatrutide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/core-metabolic/retatrutide" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'retatrutide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     RETATRUTIDE
                   </Link>
-                  <Link href="/shop/core-metabolic/5-amino-1mq" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === '5-amino-1mq' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/core-metabolic/5-amino-1mq" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === '5-amino-1mq' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     <span>5-AMINO-1MQ</span>
                     <span className="text-[7px] text-gray-500">COMING SOON</span>
                   </Link>
-                  <Link href="/shop/core-metabolic/tirzepatide" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tirzepatide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/core-metabolic/tirzepatide" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tirzepatide' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     <span>TIRZEPATIDE</span>
                     <span className="text-[7px] text-gray-500">COMING SOON</span>
                   </Link>
                 </div>
               ) : product.categorySlug === 'endocrine-growth' ? (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/endocrine-growth/cjc-1295-w-dac" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'cjc-1295-w-dac' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/endocrine-growth/cjc-1295-w-dac" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'cjc-1295-w-dac' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     <span>CJC-1295 w/DAC</span>
                     <span className="text-[7px] text-gray-500">COMING SOON</span>
                   </Link>
-                  <Link href="/shop/endocrine-growth/tesamorelin" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tesamorelin' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/endocrine-growth/tesamorelin" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tesamorelin' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     TESAMORELIN
                   </Link>
                 </div>
               ) : product.categorySlug === 'metabolic-immunity' ? (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/metabolic-immunity/ss-31" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'ss-31' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/metabolic-immunity/ss-31" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'ss-31' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     SS-31
                   </Link>
-                  <Link href="/shop/metabolic-immunity/mots-c" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'mots-c' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/metabolic-immunity/mots-c" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'mots-c' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     MOTS-c
                   </Link>
                 </div>
               ) : product.categorySlug === 'longevity-regeneration' ? (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/longevity-regeneration/bpc-157" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'bpc-157' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/longevity-regeneration/bpc-157" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'bpc-157' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     BPC-157
                   </Link>
-                  <Link href="/shop/longevity-regeneration/tb-500" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tb-500' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/longevity-regeneration/tb-500" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'tb-500' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     TB-500
                   </Link>
-                  <Link href="/shop/longevity-regeneration/ghk-cu" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'ghk-cu' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/longevity-regeneration/ghk-cu" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'ghk-cu' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     GHK-Cu
                   </Link>
                 </div>
               ) : product.categorySlug === 'neuro-cognitive' ? (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/neuro-cognitive/semax" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'semax' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/neuro-cognitive/semax" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'semax' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     <span>SEMAX</span>
                     <span className="text-[7px] text-gray-500">COMING SOON</span>
                   </Link>
-                  <Link href="/shop/neuro-cognitive/selank" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'selank' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/neuro-cognitive/selank" className={`flex flex-col items-center justify-center px-6 py-1.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'selank' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     <span>SELANK</span>
                     <span className="text-[7px] text-gray-500">COMING SOON</span>
                   </Link>
                 </div>
               ) : product.categorySlug === 'stacks' ? (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/stacks/glow" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'glow' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/stacks/glow" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'glow' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     GLOW
                   </Link>
-                  <Link href="/shop/stacks/klow" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'klow' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/stacks/klow" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'klow' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     KLOW
                   </Link>
-                  <Link href="/shop/stacks/wolverine" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'wolverine' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/stacks/wolverine" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'wolverine' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     WOLVERINE
                   </Link>
                 </div>
               ) : (
                 <div className="flex flex-wrap items-center gap-3">
-                  <Link href="/shop/accessories/bac-water" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'bac-water' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/accessories/bac-water" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'bac-water' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     BACTERIOSTATIC WATER
                   </Link>
-                  <Link href="/shop/accessories/syringes" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'syringes' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/accessories/syringes" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'syringes' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     SYRINGES
                   </Link>
-                  <Link href="/shop/accessories/prep-pads" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'prep-pads' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/accessories/prep-pads" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'prep-pads' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     PREP PADS
                   </Link>
-                  <Link href="/shop/accessories/vial-caps" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'vial-caps' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
+                  <Link href="/research-catalog/accessories/vial-caps" className={`px-6 py-2.5 border text-[10px] font-bold tracking-widest uppercase rounded cursor-pointer transition-colors ${productSlug === 'vial-caps' ? 'border-[#B98135] text-[#B98135] bg-[#B98135]/10' : 'border-white/10 text-gray-400 hover:bg-white/5'}`}>
                     VIAL CAPS
                   </Link>
                 </div>
@@ -596,18 +691,18 @@ export default function ProductDetail() {
             </div>
 
             {/* Product Hero Info & Image */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
               <div>
-                <h4 className="text-[#B98135] text-[10px] uppercase tracking-widest font-bold mb-2">{product.categoryLabel}</h4>
+                {/* <h4 className="text-[#B98135] text-[10px] uppercase tracking-widest font-bold mb-2">{product.categoryLabel}</h4> */}
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-3 uppercase">{product.name}</h1>
                 <p className="text-[#B98135] text-[11px] uppercase tracking-widest font-bold mb-6">{product.tagline}</p>
                 
-                <p className="text-gray-300 text-sm md:text-[15px] leading-relaxed max-w-lg mb-10">
+                {/* <p className="text-gray-300 text-sm md:text-[15px] leading-relaxed max-w-lg mb-10">
                   {product.description}
-                </p>
+                </p> */}
 
                 {/* Features */}
-                <div className="flex items-start gap-8 md:gap-12 mb-10">
+                {/* <div className="flex items-start gap-8 md:gap-12 mb-10">
                   <div className="flex flex-col items-center gap-3">
                     <div className="w-12 h-12 rounded-full border border-[#B98135]/40 flex items-center justify-center bg-[#B98135]/5">
                       <Crosshair size={18} className="text-[#B98135]" />
@@ -626,15 +721,15 @@ export default function ProductDetail() {
                     </div>
                     <span className="text-[10px] text-gray-300 tracking-wider">Metabolic Efficiency</span>
                   </div>
-                </div>
+                </div> */}
 
                 <button className="flex items-center gap-3 px-6 py-3 border border-white/20 rounded text-gray-300 text-[10px] font-bold tracking-widest uppercase hover:bg-white/5 transition-colors cursor-pointer">
-                  CERTIFICATE OF ANALYSIS <ArrowUpRight size={14} />
+                  VIEW BATCH DOCUMENTATION <ArrowUpRight size={14} />
                 </button>
               </div>
 
               {/* Right Image */}
-              <div className="relative w-full h-[280px] md:h-[420px] flex items-center justify-center pb-12">
+              <div className="relative w-full h-[280px] md:h-[420px] flex items-center justify-center pb-12 -mt-40">
                 <Image 
                   src={product.image} 
                   alt={product.name}
@@ -716,69 +811,175 @@ export default function ProductDetail() {
           </div>
         </div>
 
-        {/* --- RELATED & ACCORDIONS --- */}
+        {/* --- RELATED (TOP) & ACCORDIONS (BELOW, FULL WIDTH) --- */}
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="flex flex-col gap-6">
             
-            {/* Related Mini Cards */}
-            <div className="flex flex-col sm:flex-row gap-4">
-              {product.related.map((rel: any) => (
-                <Link key={rel.slug} href={`/shop/${rel.categorySlug}/${rel.slug}`} className="flex-1 flex items-center gap-4 bg-[#0a0a0a] border border-white/5 rounded-lg p-4 hover:border-white/20 transition-colors cursor-pointer">
-                  <div className="relative w-16 h-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white/10 to-transparent flex-shrink-0">
-                    <Image src={rel.image} alt={rel.name} fill className="object-contain p-2" />
-                  </div>
-                  <div>
-                    <h4 className="text-white text-sm font-bold tracking-wide mb-1">{rel.name}</h4>
-                    <p className="text-[#B98135] text-[8px] uppercase tracking-widest font-bold mb-1">CORE METABOLIC RESEARCH</p>
-                    <p className="text-gray-500 text-[10px] uppercase tracking-widest">{rel.subtitle}</p>
-                  </div>
-                </Link>
-              ))}
+            {/* Related Product Cards (outer box, full width) */}
+            <div className="border border-white/10 bg-[#050505] rounded-xl p-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {product.related.map((rel: any) => {
+                  const relComingSoon = productsData[rel.slug]?.isComingSoon;
+                  return (
+                    <Link
+                      key={rel.slug}
+                      href={`/research-catalog/${rel.categorySlug}/${rel.slug}`}
+                      className="flex items-center gap-4 bg-[#0a0a0a] border border-white/10 rounded-lg p-4 hover:border-white/25 transition-colors cursor-pointer"
+                    >
+                      {/* Bottle image */}
+                      <div className="relative w-20 h-36 flex-shrink-0">
+                        <Image src={rel.image} alt={rel.name} fill className="object-contain" />
+                      </div>
+
+                      {/* Info */}
+                      <div className="flex flex-col">
+                        <h4 className="text-white text-base font-bold tracking-wide mb-2 uppercase">{rel.name}</h4>
+                        <p className="text-[#F5A800] text-sm font-medium uppercase leading-snug mb-4">
+                          Research<br />Compound
+                        </p>
+                        <span className="inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md bg-gradient-to-b from-[#4a4f57] to-[#2c3036] text-white text-xs font-medium">
+                          {relComingSoon ? (
+                            <>Coming Soon <Clock size={14} /></>
+                          ) : (
+                            <>View Product <ArrowUpRight size={14} /></>
+                          )}
+                        </span>
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
             </div>
 
-            {/* Accordions */}
+            {/* Accordions (full width, below related cards) */}
             <div className="flex flex-col gap-2">
-              <div className="border border-white/10 bg-[#0a0a0a] rounded overflow-hidden">
-                <button 
-                  onClick={() => setOpenAccordion(openAccordion === 'research' ? null : 'research')}
-                  className="w-full flex items-center justify-between p-5 text-left transition-colors hover:bg-white/5 cursor-pointer"
+
+              {/* ===== 1) RESEARCH USE ONLY (expands to full disclaimer) ===== */}
+              <div className="border border-white/10 bg-[#0a0a0a] rounded-lg overflow-hidden">
+                <button
+                  onClick={() => setOpenAccordion(isResearchOpen ? null : 'research')}
+                  className="w-full flex items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-white/5 cursor-pointer"
                 >
-                  <div className="flex items-center gap-4">
-                    <FileText size={18} className="text-[#B98135]" />
-                    <div>
-                      <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-1">RESEARCH USE ONLY</h4>
-                      <p className="text-gray-500 text-[10px]">Not for human or veterinary use.</p>
+                  <div className="flex items-stretch gap-4 flex-1">
+                    <FileText
+                      size={isResearchOpen ? 44 : 28}
+                      strokeWidth={1.5}
+                      className={`flex-shrink-0 ${isResearchOpen ? 'text-white mt-1' : 'text-[#F5A800]'}`}
+                    />
+
+                    {isResearchOpen && (
+                      <div className="w-[2px] bg-[#F5A800] flex-shrink-0"></div>
+                    )}
+
+                    <div className="flex-1">
+                      <h4 className="text-white text-[13px] md:text-sm font-normal tracking-wide uppercase">
+                        Research Use Only
+                      </h4>
+
+                      {!isResearchOpen ? (
+                        <p className="text-gray-400 text-xs mt-1">Not for human consumption.</p>
+                      ) : (
+                        <>
+                          <h5 className="text-[#F5A800] text-base font-semibold mt-1 mb-2">
+                            Laboratory Research Materials Only
+                          </h5>
+                          <p className="text-gray-300 text-sm leading-relaxed mb-4 max-w-4xl">
+                            Products offered by Alpha Peptide are supplied solely for non-clinical laboratory research, analytical reference and assay development by qualified facilities and trained personnel.
+                          </p>
+
+                          {/* Warning box */}
+                          <div className="flex items-center gap-4 border border-[#B98135] bg-[#B98135]/10 rounded-md px-4 py-3">
+                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#F5A800] flex items-center justify-center">
+                              <AlertCircle size={18} className="text-black" strokeWidth={2.5} />
+                            </div>
+                            <p className="text-[#F5A800] text-sm leading-relaxed">
+                              Not for human or animal consumption. Not for clinical, therapeutic, diagnostic, cosmetic, food, supplement, or veterinary use. Purchasers must be 21 years of age or older.
+                            </p>
+                          </div>
+                        </>
+                      )}
                     </div>
                   </div>
-                  <PlusIcon size={16} className={`text-gray-400 transition-transform ${openAccordion === 'research' ? 'rotate-45' : ''}`} />
+
+                  {isResearchOpen ? (
+                    <Minus size={22} className="text-white flex-shrink-0" />
+                  ) : (
+                    <PlusIcon size={22} className="text-white flex-shrink-0" />
+                  )}
                 </button>
-                {openAccordion === 'research' && (
-                  <div className="p-5 pt-0 text-sm text-gray-400 border-t border-white/5">
-                    This product is strictly intended for laboratory research and development purposes.
+
+                {/* Expanded details */}
+                {isResearchOpen && (
+                  <div className="px-5 pb-5">
+                    {/* 6 points in 2 columns */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 gap-y-6 pt-2">
+                      <div className="flex flex-col gap-6 md:pr-10 md:border-r md:border-white/10">
+                        {researchPointsLeft.map((p) => (
+                          <ResearchPoint key={p.title} point={p} />
+                        ))}
+                      </div>
+                      <div className="flex flex-col gap-6 md:pl-10">
+                        {researchPointsRight.map((p) => (
+                          <ResearchPoint key={p.title} point={p} />
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Footer note + policy links */}
+                    <div className="mt-6 pt-4 border-t border-white/15">
+                      <p className="text-center text-gray-300 text-xs mb-4">
+                        This Research Use Only notice forms part of our applicable policies. If there is any inconsistency, the Terms &amp; Conditions control.
+                      </p>
+
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-0 sm:divide-x sm:divide-white/10">
+                        {policyLinks.map((link) => {
+                          const LinkIcon = link.icon;
+                          return (
+                            <Link
+                              key={link.label}
+                              href={link.href}
+                              className="flex items-center justify-center gap-3 text-white text-xs hover:text-[#F5A800] transition-colors"
+                            >
+                              <LinkIcon size={20} strokeWidth={1.5} />
+                              <span>{link.label}</span>
+                              <ArrowRight size={14} />
+                            </Link>
+                          );
+                        })}
+                      </div>
+                    </div>
                   </div>
                 )}
               </div>
 
-              <div className="border border-white/10 bg-[#0a0a0a] rounded overflow-hidden">
-                <button 
-                  onClick={() => setOpenAccordion(openAccordion === 'description' ? null : 'description')}
-                  className="w-full flex items-center justify-between p-5 text-left transition-colors hover:bg-white/5 cursor-pointer"
-                >
-                  <div className="flex items-center gap-4">
-                    <List size={18} className="text-[#B98135]" />
-                    <div>
-                      <h4 className="text-white text-[11px] font-bold tracking-widest uppercase mb-1">DESCRIPTION</h4>
-                      <p className="text-gray-500 text-[10px] line-clamp-1 max-w-sm">{product.description}</p>
-                    </div>
+              {/* ===== 2) OTHER ACCORDIONS (Batch / Product Info / Storage) ===== */}
+              {otherAccordions.map((item) => {
+                const Icon = item.icon;
+                const isOpen = openAccordion === item.id;
+                return (
+                  <div key={item.id} className="border border-white/10 bg-[#0a0a0a] rounded-lg overflow-hidden">
+                    <button
+                      onClick={() => setOpenAccordion(isOpen ? null : item.id)}
+                      className="w-full flex items-center justify-between px-5 py-4 text-left transition-colors hover:bg-white/5 cursor-pointer"
+                    >
+                      <div className="flex items-center gap-5">
+                        <Icon size={28} strokeWidth={1.5} className="text-[#F5A800] flex-shrink-0" />
+                        <h4 className="text-white text-[13px] md:text-sm font-normal tracking-wide">{item.title}</h4>
+                      </div>
+                      {isOpen ? (
+                        <Minus size={22} className="text-white flex-shrink-0" />
+                      ) : (
+                        <PlusIcon size={22} className="text-white flex-shrink-0" />
+                      )}
+                    </button>
+                    {isOpen && (
+                      <div className="px-5 pb-5 pt-1 text-sm text-gray-400 leading-relaxed">
+                        {item.content}
+                      </div>
+                    )}
                   </div>
-                  <PlusIcon size={16} className={`text-gray-400 transition-transform ${openAccordion === 'description' ? 'rotate-45' : ''}`} />
-                </button>
-                {openAccordion === 'description' && (
-                  <div className="p-5 pt-0 text-sm text-gray-400 border-t border-white/5 leading-relaxed">
-                    {product.description}
-                  </div>
-                )}
-              </div>
+                );
+              })}
             </div>
 
           </div>
@@ -797,7 +998,7 @@ export default function ProductDetail() {
               <div className="relative w-6 h-6 flex items-center justify-center">
                 <Image src="/glass.png" alt="3rd Party Labs" width={22} height={22} className="object-contain" />
               </div>
-              <span className="text-xs md:text-sm font-semibold tracking-wide uppercase">3rd Party Labs</span>
+              <span className="text-xs md:text-sm font-semibold tracking-wide">3rd Party Labs</span>
             </div>
 
             <div className="hidden md:block w-px h-8 bg-white/15"></div>
@@ -806,7 +1007,7 @@ export default function ProductDetail() {
               <div className="w-10 h-10 flex items-center justify-center text-white">
                 <ShieldCheck size={22} strokeWidth={1.5} />
               </div>
-              <span className="text-xs md:text-sm font-semibold tracking-wide uppercase">99%+ Purity (HPLC)</span>
+              <span className="text-xs md:text-sm font-semibold tracking-wide">99%+ Purity (HPLC)</span>
             </div>
 
             <div className="hidden md:block w-px h-8 bg-white/15"></div>
@@ -815,12 +1016,11 @@ export default function ProductDetail() {
               <div className="w-10 h-10 flex items-center justify-center text-white">
                 <FileSpreadsheet size={22} strokeWidth={1.5} />
               </div>
-              <span className="text-xs md:text-sm font-semibold tracking-wide uppercase">Research Grade Peptides</span>
+              <span className="text-xs md:text-sm font-semibold tracking-wide">Research Grade Peptides</span>
             </div>
           </div>
         </div>
       </div>
-      
       <Footer />
     </div>
   );

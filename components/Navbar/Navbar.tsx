@@ -82,7 +82,7 @@ export default function Navbar() {
   // Agar folder rename karein (app/research-catalog) to sirf yahan href badal dein.
   const navLinks = [
     { label: 'Home', href: '/home' },
-    { label: 'Research Catalog', href: '/shop' },
+    { label: 'Research Catalog', href: '/research-catalog' },
     { label: 'Lab Results', href: '/lab-results' },
     { label: 'Research', href: '/research' },
     { label: 'FAQ', href: '/faq' },

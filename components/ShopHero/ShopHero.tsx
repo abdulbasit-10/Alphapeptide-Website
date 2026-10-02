@@ -27,9 +27,9 @@ export default function ShopHero({ initialCategory = 'all' }: { initialCategory?
   const handleSelect = (id: string) => {
     setActiveCategory(id);
     if (id === 'all') {
-      router.push('/shop');
+      router.push('/research-catalog');
     } else {
-      router.push(`/shop/${id}`);
+      router.push(`/research-catalog/${id}`);
     }
   };
 
