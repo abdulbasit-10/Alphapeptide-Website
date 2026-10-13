@@ -297,15 +297,15 @@ export const researchData: Record<string, any> = {
     id: 'AP-RC-005',
     title: 'SELANK',
     type: 'RESEARCH COMPOUND',
-    bgImage: '/selank-hero.png', // Update with actual path
-    leftHexImage: '/left-hex-selank.png', // Update with actual path
+    bgImage: '/SELANK w bottle 2.png', // Update with actual path
+    leftHexImage: '/image 187.png', // Update with actual path
     tags: ['NEURO-COGNITIVE', 'STRESS RESILIENCE', 'FOCUS', 'EMOTIONAL BALANCE'],
-    benefits: ['CALMER MIND', 'SHARPER FOCUS', 'GREATER RESILIENCE', 'HIGHER POTENTIAL'],
+    benefits: ['SELANKCALMER MIND', 'SHARPER FOCUS', 'GREATER RESILIENCE', 'HIGHER POTENTIAL'],
     researchFocus: [
-      { title: 'NEURO-COGNITIVE\nSUPPORT', icon: '/icons/neuro.svg' },
-      { title: 'STRESS RESILIENCE &\nANXIETY MODULATION', icon: '/icons/stress.svg' },
-      { title: 'FOCUS &\nMENTAL CLARITY', icon: '/icons/focus.svg' },
-      { title: 'EMOTIONAL BALANCE\n& MOOD SUPPORT', icon: '/icons/mood.svg' }
+      { title: 'NEURO-COGNITIVE\nSUPPORT', icon: '/fluent-emoji-high-contrast_brain.png' },
+      { title: 'STRESS RESILIENCE &\nANXIETY MODULATION', icon: '/solar_meditation-linear.png' },
+      { title: 'FOCUS &\nMENTAL CLARITY', icon: '/boxicons_target.png' },
+      { title: 'EMOTIONAL BALANCE\n& MOOD SUPPORT', icon: '/iconamoon_slightly-smiling-face-light.png' }
     ],
     leftSectionTitle: 'PEPTIDE RESEARCH & KNOWLEDGE SHARE',
     paragraphs: [
@@ -326,15 +326,15 @@ export const researchData: Record<string, any> = {
     id: 'AP-RC-011',
     title: 'THYMOSIN ALPHA-1',
     type: 'RESEARCH COMPOUND',
-    bgImage: '/thymosin-hero.png', // Update with actual path
-    leftHexImage: '/left-hex-thymosin.png', // Update with actual path
+    bgImage: '/44443oi4u3.jpg', // Update with actual path
+    leftHexImage: '/image 208.png', // Update with actual path
     tags: ['IMMUNE MODULATION', 'T-CELL SUPPORT', 'INFLAMMATORY BALANCE', 'HOST DEFENSE RESEARCH'],
-    benefits: ['EXPLORING IMMUNE', 'RESILIENCE, T-CELL', 'FUNCTION AND', 'INFLAMMATORY BALANCE'],
+    benefits: ['EXPLORING IMMUNE', 'RESILIENCE, T-CELL', 'FUNCTION AND', 'INFLAMMATORY BALANCE', 'THROUGH THYMIC','PEPTIDE RESEARCH.'],
     researchFocus: [
-      { title: 'IMMUNE\nMODULATION', icon: '/icons/immune.svg' },
-      { title: 'T-CELL\nSUPPORT', icon: '/icons/tcell.svg' },
-      { title: 'INFLAMMATORY\nBALANCE', icon: '/icons/balance.svg' },
-      { title: 'HOST DEFENSE\nRESEARCH', icon: '/icons/defense.svg' }
+      { title: 'IMMUNE\nMODULATION', icon: '/boxicons_plus-shield.png' },
+      { title: 'T-CELL\nSUPPORT', icon: '/Vector (2).png' },
+      { title: 'INFLAMMATORY\nBALANCE', icon: '/23423errt.png' },
+      { title: 'HOST DEFENSE\nRESEARCH', icon: '/fa7-solid_dna.png' }
     ],
     leftSectionTitle: 'PEPTIDE RESEARCH & KNOWLEDGE SHARE',
     paragraphs: [
@@ -355,15 +355,15 @@ export const researchData: Record<string, any> = {
     id: 'AP-RC-006',
     title: 'SEMAX',
     type: 'RESEARCH COMPOUND',
-    bgImage: '/semax-hero.png', // Update with actual path
-    leftHexImage: '/left-hex-semax.png', // Update with actual path
+    bgImage: '/SEMAX w bottle 2.png', 
+    leftHexImage: '/image 210.png', 
     tags: ['NEURO-COGNITIVE', 'FOCUS', 'NEUROPROTECTION', 'LEARNING & MEMORY'],
     benefits: ['ENHANCED FOCUS', 'GREATER CLARITY', 'NEUROPROTECTION', 'HIGHER POTENTIAL'],
     researchFocus: [
-      { title: 'NEURO-COGNITIVE\nSUPPORT', icon: '/icons/neuro.svg' },
-      { title: 'FOCUS &\nMENTAL CLARITY', icon: '/icons/focus.svg' },
-      { title: 'NEUROPROTECTION &\nBRAIN HEALTH', icon: '/icons/brain.svg' },
-      { title: 'LEARNING & MEMORY\nENHANCEMENT', icon: '/icons/memory.svg' }
+      { title: 'NEURO-COGNITIVE\nSUPPORT', icon: '/fluent-emoji-high-contrast_brain.png' },
+      { title: 'FOCUS &\nMENTAL CLARITY', icon: '/boxicons_target.png' },
+      { title: 'NEUROPROTECTION &\nBRAIN HEALTH', icon: '/shield.png' },
+      { title: 'LEARNING & MEMORY\nENHANCEMENT', icon: '/arcticons_breeno-memory.png' }
     ],
     leftSectionTitle: 'PEPTIDE RESEARCH & KNOWLEDGE SHARE',
     paragraphs: [
@@ -384,15 +384,15 @@ export const researchData: Record<string, any> = {
     id: 'AP-RC-008',
     title: 'CJC-1295 W/ DAC',
     type: 'RESEARCH COMPOUND',
-    bgImage: '/cjc-hero.png', // Update with actual path
-    leftHexImage: '/left-hex-cjc.png', // Update with actual path
+    bgImage: '/CJC-1295 w bottle 2.png', 
+    leftHexImage: '/image 211.png', 
     tags: ['GROWTH HORMONE SUPPORT', 'IGF-1 MODULATION', 'RECOVERY', 'BODY COMPOSITION'],
     benefits: ['SUPPORTS NATURAL GROWTH', 'HORMONE RELEASE', 'MAY ENHANCE IGF-1 LEVELS', 'AIDS IN RECOVERY'],
     researchFocus: [
-      { title: 'GROWTH HORMONE\nRELEASE', icon: '/icons/gh.svg' },
-      { title: 'IGF-1 MODULATION &\nMETABOLIC SUPPORT', icon: '/icons/igf.svg' },
-      { title: 'RECOVERY &\nLEAN MASS', icon: '/icons/recovery.svg' },
-      { title: 'LONG-TERM WELLNESS\nRESEARCH', icon: '/icons/wellness.svg' }
+      { title: 'GROWTH HORMONE\nRELEASE', icon: '/fluent-emoji-high-contrast_brain.png' },
+      { title: 'IGF-1 MODULATION &\nMETABOLIC SUPPORT', icon: '/23423errt.png' },
+      { title: 'RECOVERY &\nLEAN MASS', icon: '/lucide_biceps-flexed.png' },
+      { title: 'LONG-TERM WELLNESS\nRESEARCH', icon: '/shield.png' }
     ],
     leftSectionTitle: 'PEPTIDE RESEARCH & KNOWLEDGE SHARE',
     paragraphs: [
@@ -413,15 +413,15 @@ export const researchData: Record<string, any> = {
     id: 'AP-RC-010',
     title: '5-AMINO-1MQ',
     type: 'RESEARCH COMPOUND',
-    bgImage: '/5-amino-hero.png', // Update with actual path
-    leftHexImage: '/left-hex-5amino.png', // Update with actual path
+    bgImage: '/5AMINO-1MQ w bottle 2.png', // Update with actual path
+    leftHexImage: '/image 212.png', // Update with actual path
     tags: ['NAD+ SUPPORT', 'MITOCHONDRIAL HEALTH', 'CELLULAR ENERGY', 'HEALTHY AGING RESEARCH'],
     benefits: ['EXPLORING CELLULAR ENERGY,', 'METABOLIC HEALTH AND', 'LONGEVITY THROUGH NAD+', 'PATHWAYS.'],
     researchFocus: [
-      { title: 'NAD+\nSUPPORT', icon: '/icons/nad.svg' },
-      { title: 'MITOCHONDRIAL\nHEALTH', icon: '/icons/mito.svg' },
-      { title: 'CELLULAR ENERGY &\nMETABOLIC FUNCTION', icon: '/icons/energy.svg' },
-      { title: 'HEALTHY AGING\nRESEARCH', icon: '/icons/aging.svg' }
+      { title: 'NAD+\nSUPPORT', icon: '/rwefwer34.png' },
+      { title: 'MITOCHONDRIAL\nHEALTH', icon: '/23423errt.png' },
+      { title: 'CELLULAR ENERGY &\nMETABOLIC FUNCTION', icon: '/1234fsdfe.png' },
+      { title: 'HEALTHY AGING\nRESEARCH', icon: '/shield.png' }
     ],
     leftSectionTitle: 'PEPTIDE RESEARCH & KNOWLEDGE SHARE',
     paragraphs: [

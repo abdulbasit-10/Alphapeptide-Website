@@ -21,6 +21,40 @@ export default async function ArticleDetail({ params }: { params: Promise<{ slug
     { label: 'RESEARCH', href: '/research' },
     { label: data.title }
   ];
+  // dynamic links of articles
+let externalLink = "";
+
+switch (slug) {
+  case 'bpc-157': externalLink = "https://www.peptidecenter.org/peptides/bpc-157"; break;
+  case 'tb-500': externalLink = "https://www.peptidecenter.org/peptides/bpc-157"; break;
+  case 'ghk-cu': externalLink = "https://www.peptidecenter.org/peptides/ghk-cu"; break;
+  case '5-amino-1mq': externalLink = "https://www.peptidecenter.org/peptides/5-amino-1mq"; break;
+  case 'cjc-1295': externalLink = "https://www.peptidecenter.org/peptides/cjc-1295-with-dac"; break;
+  case 'retatrutide': externalLink = "https://www.lilly.com/news/stories/what-to-know-about-retatrutide?utm_source=chatgpt.com"; break;
+  case 'tirzepatide': externalLink = "https://health.clevelandclinic.org/tirzepatide-vs-semaglutide?utm_source=chatgpt.com"; break;
+  case 'tesamorelin': externalLink = "https://www.peptidecenter.org/peptides/tesamorelin"; break;
+  case 'mots-c': externalLink = "https://www.peptidecenter.org/peptides/mots-c"; break;
+  case 'ss-31': externalLink = "https://www.peptidecenter.org/peptides/ss-31"; break;
+  case 'semax': externalLink = "https://www.peptidecenter.org/peptides/semax"; break;
+  case 'selank': externalLink = "https://www.peptidecenter.org/peptides/selank"; break;
+  case 'wolverine': externalLink = "https://www.peptidecenter.org/peptides/wolverine-blend"; break;
+  case 'klow': externalLink = "https://www.peptidecenter.org/peptides/klow"; break;
+  case 'glow': externalLink = "https://www.peptidecenter.org/peptides/glow"; break;
+  default: externalLink = "#"; 
+}
+
+// ... your page layout code ...
+
+{/**/}
+<a 
+  href={externalLink} 
+  target="_blank"
+  rel="noopener noreferrer"
+  className="shrink-0 flex items-center gap-4 border border-yellow bg-transparent hover:bg-white/5 transition-all px-8 py-4 rounded-sm text-[11px] md:text-[13px] font-semibold tracking-widest uppercase text-white group"
+>
+  READ RESEARCH OVERVIEW 
+  <ArrowUpRight size={18} className="text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
+</a>
 
   return (
     <div className="min-h-screen bg-[#030303] text-white pt-4 md:pt-2">
@@ -137,13 +171,13 @@ export default async function ArticleDetail({ params }: { params: Promise<{ slug
                 <span>{data.year}</span>
               </div>
 
-              <Link 
-                href="#" 
-                className="shrink-0 flex items-center gap-4 border border-white/15 bg-transparent hover:bg-white/5 transition-all px-8 py-4 rounded-sm text-[11px] md:text-[13px] font-semibold tracking-widest uppercase text-white group"
+              <a 
+                href={externalLink}
+                className="shrink-0 flex items-center gap-4 border border-yellow bg-transparent hover:bg-white/5 transition-all px-8 py-4 rounded-sm text-[11px] md:text-[13px] font-semibold tracking-widest uppercase text-white group"
               >
                 READ RESEARCH OVERVIEW 
                 <ArrowUpRight size={18} className="text-white opacity-80 group-hover:opacity-100 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all" />
-              </Link>
+              </a>
             </div>
           </div>
         </div>

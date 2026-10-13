@@ -9,7 +9,7 @@ import Footer from '../../components/Footer/Footer';
 
 // Static Data for the COA Table (Added 2 more so the View More button shows up!)
 const initialLots = [
-  { lot: 'VP-183D5F7410', compound: 'BPC-157 / TB-500 Blend', dose: '—', purity: '99.84% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
+  { lot: 'VP-183D5F7410', compound: 'BPC-157 / TB-500 Blend', dose: '—', purity: '99.84% HPLC', mw: '—', status: 'IN STOCK', pdf: '/BPC157TB500.pdf' },
   { lot: 'VP-3Q5S7UFA6', compound: 'CJC / Ipamorelin', dose: '—', purity: '99.22% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
   { lot: 'VP-8K3M7N2P4', compound: 'GLP-1 SM', dose: 'Dose Strength: 10mg', purity: '98.05% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
   { lot: 'VP-5R7T3W6X6', compound: 'GLP-3 RT', dose: 'Dose Strength: 10mg', purity: '99.65% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
@@ -17,9 +17,9 @@ const initialLots = [
   { lot: 'VP-3AAC6E2G8', compound: 'GLP-2 TZ', dose: '—', purity: '99.77% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
   { lot: 'VP-1U5V6X8Z2', compound: 'MOTS-C', dose: '—', purity: '99.86% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
   { lot: 'VP-7W9Y2AACS', compound: 'Semax 10mg', dose: '10mg', purity: '99.76% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
-  { lot: 'VP-2JN6N8OD', compound: 'SS-31', dose: 'Dosage: 50mg', purity: '99.33% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
-  { lot: 'VP-9N2P5R7T0', compound: 'Tesamorelin 10mg', dose: '10mg', purity: '99.29% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
-  { lot: 'VP-11N2P5R7T', compound: 'Retatrutide 10mg', dose: '10mg', purity: '99.50% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
+  { lot: 'VP-2JN6N8OD', compound: 'SS-31', dose: 'Dosage: 50mg', purity: '99.33% HPLC', mw: '—', status: 'IN STOCK', pdf: '/SS-31.pdf' },
+  { lot: 'VP-9N2P5R7T0', compound: 'Tesamorelin 10mg', dose: '10mg', purity: '99.29% HPLC', mw: '—', status: 'IN STOCK', pdf: '/tersmoline.pdf' },
+  { lot: 'VP-11N2P5R7T', compound: 'Retatrutide 10mg', dose: '10mg', purity: '99.50% HPLC', mw: '—', status: 'IN STOCK', pdf: '/Retatrutide.pdf' },
   { lot: 'VP-12N2P5R7T', compound: 'Tirzepatide 30mg', dose: '30mg', purity: '99.90% HPLC', mw: '—', status: 'IN STOCK', pdf: '/sample-coa.pdf' },
 ];
 

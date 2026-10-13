@@ -6,8 +6,10 @@ import Link from 'next/link';
 import { useCart } from '../../context/CartContext';
 import { Lock, CreditCard, Truck } from 'lucide-react';
 import Footer from '../../components/Footer/Footer';
+import { useRouter } from 'next/navigation';
 
 export default function CheckoutPage() {
+  const router = useRouter();
   const { cartItems, subtotal } = useCart();
   const [shippingMethod, setShippingMethod] = useState<'free' | 'flat'>('free');
   
@@ -277,9 +279,12 @@ export default function CheckoutPage() {
             </div>
 
             {/* Proceed Button */}
-            <button className="w-full py-4 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:opacity-90 text-white text-xs font-semibold tracking-[0.2em] rounded-lg uppercase flex items-center justify-center gap-2 transition-all cursor-pointer">
-              <Lock size={14} /> Proceed To Secure Checkout
-            </button>
+         <button 
+        onClick={() => router.push('/secure-checkout')}
+          className="w-full py-4 bg-black/55 border-2 border-[#94590D] hover:opacity-90 text-white text-xs font-semibold tracking-[0.2em] rounded-lg uppercase flex items-center justify-center gap-2 transition-all cursor-pointer"
+           >
+  <Lock size={14} /> Proceed To Secure Checkout
+</button>
 
           </div>
         </div>

@@ -291,8 +291,7 @@ export default function CartPage() {
               {/* Proceed Button */}
               <button 
                 onClick={() => router.push('/checkout')}
-                className="w-full py-4 bg-gradient-to-r from-[#94590D] to-[#B77D33] hover:opacity-90 text-white text-xs font-semibold tracking-[0.2em] rounded-lg uppercase flex items-center justify-center gap-2 transition-all cursor-pointer"
-              >
+className="w-full py-4 bg-black/55 border-1 border-[#B98135] hover:opacity-90 text-white text-xs font-semibold tracking-[0.2em] rounded-lg uppercase flex items-center justify-center gap-2 transition-all cursor-pointer"              >
                 <Lock size={14} /> Proceed To Secure Checkout
               </button>
 

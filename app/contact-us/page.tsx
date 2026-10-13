@@ -131,20 +131,22 @@ export default function ContactPage() {
                 Chat with us on WhatsApp for faster support.
               </p>
               <div className="flex items-center gap-2 pt-2">
-                <div className="w-8 h-8 rounded-full bg-black border border-[#B98135]/40 flex items-center justify-center text-[#B98135]">
+                {/* <div className="w-8 h-8 rounded-full bg-black border border-[#B98135]/40 flex items-center justify-center text-[#B98135]">
                   <MessageSquare size={14} />
-                </div>
-                <span className="text-sm font-bold text-[#B98135] tracking-wide">365-PEPTIDE</span>
+                </div> */}
+                {/* <span className="text-sm font-bold text-[#B98135] tracking-wide">365-PEPTIDE</span> */}
               </div>
+              
             </div>
 
             {/* QR Code Image from Public Folder */}
-            <div className="relative w-24 h-24 rounded-lg p-2 shrink-0 border border-white/10 flex items-center justify-center bg-black">
+            <div className="relative w-38 h-38 rounded-lg p-2 shrink-0 border border-white/10 flex items-center justify-center bg-black">
+             
               <Image 
                 src="/contactqr.png" 
                 alt="WhatsApp QR Code" 
                 fill 
-                className="object-contain p-2"
+                className="object-cover"
               />
             </div>
 
