@@ -1,5 +1,7 @@
 import React from 'react';
 
+
+
 export const researchData: Record<string, any> = {
   'bpc-157': {
     id: 'AP-RC-002',
