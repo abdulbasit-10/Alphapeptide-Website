@@ -80,9 +80,9 @@ export default function CheckoutHero({ currentStep }: CheckoutHeroProps) {
         {/* Stepper Navigation */}
         <div className="relative flex justify-between items-center max-w-3xl mx-auto w-full">
           {/* Connecting Lines */}
-          <div className="absolute top-6 left-0 right-0 h-[1px] bg-white/10 z-0"></div>
+          <div className="absolute top-[51px] left-10 right-10 h-[1px] bg-white/10 z-0"></div>
           
-          {steps.map((step) => {
+          {steps.map((step, index) => {
             const isActive = step.num === currentStep;
             const isCompleted = step.num < currentStep;
             
@@ -102,6 +102,16 @@ export default function CheckoutHero({ currentStep }: CheckoutHeroProps) {
                     height={20}
                     className="object-contain"
                   />
+                  
+                  {/* Left Dot (Hidden on first step) */}
+                  {index > 0 && (
+                    <div className={`absolute top-1/2 -translate-y-1/2 -left-[5px] w-[5px] h-[5px] rounded-full ${isActive || isCompleted ? 'bg-[#B98135]' : 'bg-white'}`}></div>
+                  )}
+
+                  {/* Right Dot (Hidden on last step) */}
+                  {index < steps.length - 1 && (
+                    <div className={`absolute top-1/2 -translate-y-1/2 -right-[5px] w-[5px] h-[5px] rounded-full ${isActive || isCompleted ? 'bg-[#B98135]' : 'bg-white'}`}></div>
+                  )}
                 </div>
                 
                 <span className={`text-[10px] md:text-xs font-semibold tracking-wide ${isActive || isCompleted ? 'text-[#B98135]' : 'text-gray-500'}`}>
