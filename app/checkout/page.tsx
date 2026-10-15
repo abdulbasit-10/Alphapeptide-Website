@@ -99,7 +99,7 @@ export default function CheckoutPage() {
                 <label className="block text-xs font-medium text-gray-300 mb-2">Country / Region*</label>
                 <select className="w-full bg-black border border-white/10 rounded-lg px-4 py-3 text-sm text-white focus:border-[#B98135] focus:outline-none transition-colors">
                   <option value="Canada">Canada</option>
-                  <option value="United States">United States</option>
+                  
                 </select>
               </div>
 
